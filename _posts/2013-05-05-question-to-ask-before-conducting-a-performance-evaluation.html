@@ -1,0 +1,47 @@
+---
+layout: post
+title: Questions to ask before conducting a performance evaluation
+categories:
+- Research
+tags:
+- performance evaluation
+status: publish
+type: post
+published: true
+meta:
+  _publicize_pending: '1'
+  _wp_old_slug: '1809'
+  publicize_twitter_user: lalithsuresh
+  _wpas_done_86875: '1'
+  _publicize_done_external: a:1:{s:7:"twitter";a:1:{i:18867264;b:1;}}
+  _wpas_skip_86875: '1'
+  _elasticsearch_indexed_on: '2013-05-05 12:37:57'
+---
+I've been evaluating some popular cloud systems lately and unsurprisingly enough, I'm finding it really hard to make a final call on a set of results. Have I tuned the systems I'm comparing appropriately for the workloads I'm subjecting them to? Are the workloads reasonable? Is the system itself the bottleneck or is it a set of external factors? There were so many questions piling up that it's made me rather skeptical about system evaluations I find in papers today.<p>
+<p>
+So I've picked up this <a href="http://www.cse.wustl.edu/~jain/books/perfbook.htm">book</a>, and found this minimal checklist to go through to avoid common mistakes when conducting a performance evaluation.<p>
+<ol><p>
+	<li><span style="font-size:1rem;line-height:1.714285714;">Is the system correctly defined and the goals clearly stated? </span></li><p>
+	<li><span style="line-height:1.714285714;font-size:1rem;">Are the goals stated in an unbiased manner? </span></li><p>
+	<li><span style="line-height:1.714285714;font-size:1rem;">Have all the steps of the analysis followed systematically? </span></li><p>
+	<li><span style="line-height:1.714285714;font-size:1rem;">Is the problem clearly understood before analyzing it? </span></li><p>
+	<li><span style="line-height:1.714285714;font-size:1rem;">Are the performance metrics relevant for this problem? </span></li><p>
+	<li><span style="line-height:1.714285714;font-size:1rem;">Is the workload correct for this problem? </span></li><p>
+	<li><span style="line-height:1.714285714;font-size:1rem;">Is the evaluation technique appropriate? </span></li><p>
+	<li><span style="line-height:1.714285714;font-size:1rem;">Is the list of parameters that affect performance complete? </span></li><p>
+	<li><span style="line-height:1.714285714;font-size:1rem;">Have all parameters that affect performance been chosen as factors to be varied? </span></li><p>
+	<li><span style="line-height:1.714285714;font-size:1rem;">Is the experimental design efficient in terms of time and results? </span></li><p>
+	<li><span style="line-height:1.714285714;font-size:1rem;">Is the level of detail proper? </span></li><p>
+	<li><span style="line-height:1.714285714;font-size:1rem;">Is the measured data presented with analysis and interpretation? </span></li><p>
+	<li><span style="line-height:1.714285714;font-size:1rem;">Is the analysis statistically correct? </span></li><p>
+	<li><span style="line-height:1.714285714;font-size:1rem;">Has the sensitivity analysis been done? </span></li><p>
+	<li><span style="line-height:1.714285714;font-size:1rem;">Would errors in the input cause an insignificant change in the results? </span></li><p>
+	<li><span style="line-height:1.714285714;font-size:1rem;">Have the outliers in the input or output been treated properly? </span></li><p>
+	<li><span style="line-height:1.714285714;font-size:1rem;">Have the future changes in the system and workload been modeled? </span></li><p>
+	<li><span style="line-height:1.714285714;font-size:1rem;">Has the variance of input been taken into account? </span></li><p>
+	<li><span style="line-height:1.714285714;font-size:1rem;">Has the variance of the results been analyzed? </span></li><p>
+	<li><span style="line-height:1.714285714;font-size:1rem;">Is the analysis easy to explain? </span></li><p>
+	<li><span style="line-height:1.714285714;font-size:1rem;">Is the presentation style suitable for its audience? </span></li><p>
+	<li><span style="line-height:1.714285714;font-size:1rem;">Have the results been presented graphically as much as possible? </span></li><p>
+	<li><span style="line-height:1.714285714;font-size:1rem;">Are the assumptions and limitations of the analysis clearly documented?</span></li><p>
+</ol>

@@ -1,0 +1,74 @@
+---
+layout: post
+title: Towards a Scalable and Highly Available HDFS Namenode
+categories:
+- Distributed Systems
+- FOSS
+tags:
+- apache
+- hadoop
+- hdfs
+- namenode availability
+- namenode scalability
+status: publish
+type: post
+published: true
+meta:
+  publicize_results: a:1:{s:7:"twitter";a:1:{i:18867264;a:2:{s:7:"user_id";s:12:"lalithsuresh";s:7:"post_id";s:18:"147260472398331904";}}}
+  _wpas_done_twitter: '1'
+  _wpas_skip_fb: '1'
+  _wpas_mess: ! 'Towards a Scalable and Highly Available HDFS Namenode: http://wp.me/phuDV-na'
+  _elasticsearch_indexed_on: '2011-12-15 10:23:16'
+---
+After 3 months of intense hacking, I'm pleased to be writing about a little something I worked on for a project course here at KTH.<p>
+<h3><span style="text-decoration:underline;"><strong>The premise</strong></span></h3><p>
+So we're all familiar with <a href="http://hadoop.apache.org/">Hadoop</a>, right? It's the little yellow elephant that provides an excellent platform for distributed computing, which is seeing rapid adoption by the industry, and involvement from major players like Yahoo!, Facebook and recently, Microsoft. Well, Hadoop and friends use the <a href="http://hadoop.apache.org/hdfs/">Hadoop Distributed File System</a> (HDFS) as their underlying storage layer. Given the kind of jobs that are expected to run on top of it, HDFS is designed to store large files, and is optimised for throughput as opposed to latency.<p>
+<p>
+HDFS is a single-master-server based distributed file system. Architecturally speaking, HDFS comprises of three important entities:<p>
+<ol><p>
+	<li>Clients, who read/write files from/to the filesystem.</li><p>
+	<li>Datanodes, which actually store the data (blocks) associated with the files.</li><p>
+	<li>The Namenode, which is a central server that stores all the metadata associated with the files, and blocks.</li><p>
+</ol><p>
+This division between metadata storage and data storage is important, because typical use cases of HDFS are data intensive, and not metadata intensive. That's fine, but the problem is, if the Namenode crashes, the entire file system becomes inoperable because clients and Datanodes still need the metadata to do anything useful. Furthermore, since the Namenode maintains all the metadata only in memory, the number of files you can store on the filesystem is directly proportional to the amount of RAM the Namenode has. As if that's not enough, the Namenode will be completely saturated under write intensive workloads, and will be unable to respond to even simple client side queries like "ls". Have a look at <a href="http://www.usenix.org/publications/login/2010-04/openpdfs/shvachko.pdf">Shvachko's paper</a> which describes these problems at great length and depth, on which we've based our work.<p>
+<p>
+Long story short, the needs of the hour are:<p>
+<ul><p>
+	<li>High availability for the Namenode, i.e, no single point of failure.</li><p>
+	<li>Horizontal scalability for the Namenode, i.e, to handle heavier loads, one would need to only add more Namenodes to the system than having to upgrade a single Namenode's hardware.</li><p>
+</ul><p>
+<h3><span style="text-decoration:underline;"><strong>Our solution</strong></span></h3><p>
+In order to recover from crashes, the Namenode maintains a <a href="http://en.wikipedia.org/wiki/Journaling_file_system">journal</a> of all changes that it makes to the metadata. This pretty much involves logging every operation made to disk, and there is quite a huge piece of code related to this as well. However, the database community has been doing journaling, checkpointing and replicated storage since quite a while. So if you haven't guessed our solution yet, here it is:<p>
+<p>
+<em>"Move all of the Namenode's metadata storage into an in-memory, replicated, share-nothing distributed database."</em><p>
+<p>
+<em></em>In short, Namenodes themselves are reduced to a stateless frontend to the database, and fetch state into memory only when required. This comes with the added advantage of being able to have multiple stateless Namenodes for the same filesystem namespace. We chose <a href="http://www.mysql.com/products/cluster/">MySQL Cluster</a> as our database because of its wide spread use and stability. So for the filesystem to scale to a larger number of files, one needs to add more MySQL Cluster Datanodes, thus moving the bottleneck from the Namenode's RAM to the DB's storage capacity. For the filesystem to handle heavier workloads, one needs to add only more Namenode machines and divide the load amongst them. Another interesting aspect is that if a single Namenode machine has to reboot, it needn't fetch any state into memory and will be ready for action within a few seconds (although it still has to sync with Datanodes). Another advantage of our design is that the modifications will not affect the clients or Datanodes in anyway, except that we might need to find a way to divide the load among the Namenodes.<p>
+<div></div><p>
+<h3><span style="text-decoration:underline;"><strong>How we did it</strong></span></h3><p>
+We first dissected all the internal protocols being used in HDFS, i.e, the client-Namenode, Namenode-Datanode, and client-Datanode protocols. Next, we stripped out all the Namenode code that we didn't need. This was pretty much the code related to journaling, checkpointing, the secondary Namenode and so forth.<p>
+<p>
+Next, we identified the key data structures we needed to move to the DB. We picked the two most memory intensive data-structures to migrate first: the Inodes, and the Blocks.<p>
+<p>
+Since we were heavily time constrained (three months to deliver the project and the report), we decided to focus on functional correctness first, and then optimise later. So the easiest course of action seemed to be to modify the lowest levels of the call chain, replacing reads/writes from/to memory with query, insert, update and delete operations on the DB. We developed two helper classes, one each for Inodes and Blocks, and interfaced with the DB through these methods. We used the <a href="http://dev.mysql.com/doc/ndbapi/en/mccj-using-clusterj.html">ClusterJ connector</a> to talk to MySQL. This obviously meant that we needed a flat row representation for Inodes and Blocks in the DB, and we had some other problems to think of as well on the way. How do we index Inodes? How do we index Blocks? What about Triplets?<p>
+<p>
+All in all, we tackled the problem of scaling the Namenode with a set of design decisions which we later found to be consistent with Shvacko's <a href="http://www.usenix.org/publications/login/2011-06/openpdfs/Shvachko.pdf">update paper</a> on the Namenode's scalability, except that he suggests using HBase as the DB.<p>
+<h3><span style="text-decoration:underline;"><strong>Current status</strong></span></h3><p>
+<ul><p>
+	<li>Multiple stateless Namenodes run merrily, which store Inode and Block related metadata in MySQL Cluster. As a validation test, Clients can do an "ls" query to any Namenode and see a consistent view of the filesystem regardless of which Namenode updated the DB with the content.</li><p>
+	<li>We're trying to ensure functional correctness using the HDFS unit tests. We got the most important ones to pass, and decided to keep some more bug fixing until later because we needed to evaluate the system as part of the course.</li><p>
+	<li>We've been evaluating the system using the Synthetic Load Generator. Horizontal scalability has been clearly achieved; adding more Namenodes improves the average number of operations per second for different work loads. With write intensive work loads, the scalability is linear in terms of total operations/sec that are executed.</li><p>
+</ul><p>
+<h3><span style="text-decoration:underline;"><strong>Current limitations</strong></span></h3><p>
+Obviously, our work isn't rainbows and sunshine; there's a long way to go. Here's what we don't have yet and are currently addressing:<p>
+<ul><p>
+	<li>Performance improvements. With a single load-generator thread throwing requests at the Namenode, we're within a 10th of the original Namenode's performance because read/writes from/to memory now go over a network to a database cluster (which is OK, I guess). But with more LoadGen threads, we're experiencing a hefty bottleneck, which I'll describe in the next point.</li><p>
+	<li>The Namenode isn't fully stateless yet. The most important data structures we're yet to move are the DatanodeDescriptor entities and the file leases. There'll surely be more, but these are the most crucial ones. Once full statelessness is achieved, we can eliminate the read-write locks in the code which are absolutely not needed any more in our implementation (the Namenode currently uses a multiple-reader-single-writer concurrency model). Profiling experiments indicated that the Namenode spends around 70% of its time waiting to acquire write locks. If we keep the Namenode fully stateless, we can wrap FSNamesystem operations into Database transactions which can be batched, and let MySQL cluster handle serialisability for us (which can handle write-heavy transactions really well). We can even break away from the single-writer model that the Namenode currently uses. Will this lead to a higher throughput for write operations than the original Namenode? Maybe. :)</li><p>
+	<li>Clients and Datanodes have to be statically partitioned as of now (it sufficed for our evaluations). We need a way for them to pick a random Namenode to perform their operations with.</li><p>
+</ul><p>
+<h3><span style="text-decoration:underline;"><strong>Talk is cheap, show me the code!</strong></span></h3><p>
+The <a href="https://github.com/lalithsuresh/Scaling-HDFS-NameNode">code is publicly available here</a> for thy scrutiny. You'll also need to have a MySQL cluster setup in order to test this (we have a hard coded set of defaults in DBConnector.java which you can politely ignore). :) Here's our <a href="https://docs.google.com/presentation/pub?id=16JsCmNDplMIPm1-x455zqxpEd9g-k386ZgAlqi1AKsE&amp;start=false&amp;loop=false&amp;delayms=3000#slide=id.p">presentation</a> on it as well. We've dubbed our prototype implementation KTHFS (because we're students at KTH, but yes, no points for creativity on that one).<p>
+<h3></h3><p>
+<h3><span style="text-decoration:underline;"><strong>Future work</strong></span></h3><p>
+As an academic obligation, here's future work (and no I'm not going to write stuff we'll never do).<p>
+<p>
+One member (not me) from the team will be continuing this work as part of his Masters thesis, and plans to address the above mentioned limitations as part of his work. I'll try to contribute as well during my free time (what are weekends for anyway?). Let's see how this goes. :)

@@ -1,0 +1,30 @@
+---
+layout: post
+title: A long vacation, 2010 and Solitaire
+categories:
+- Non-Tech
+- Vacation
+tags:
+- '2010'
+- home
+- newyear
+- solitaire
+- Vacation
+- windows
+status: publish
+type: post
+published: true
+meta:
+  _elasticsearch_indexed_on: '2010-01-03 08:35:52'
+---
+My first post of the year! So here I am, whiling away the last day of my winter vacation at home. December '09 has been rather fruitful, I learnt a lot about NS-3 and even became a contributor to the project. I also managed to make a good deal of progress with my work on Security Issues in Mobile Ad hoc Networks. :)<p>
+<p>
+Anyhow, the only problem with working from (my) home is the dial-up connection I'm stuck with. My laptop doesn't even have a dial-up modem and hence, I'm forced to use my trusty (maybe not) 8 year old Windows box, which has housed and nurtured generations of malware. There's this weird one that forces a click on a particular section of the screen, another one that blocks keyboard input for a while (and surely records/sends it somewhere) before allowing me to continue, and a million others. This system won't even boot from a USB which ruined my efforts to install Linux on it. And yes, I'm too lazy to go out of home and buy a blank CD/DVD. Anyhow, the dial-up is so slow, I always have a Solitaire window open to keep my fingers busy while my browser struggles to load pages over the connection that gives me blazing speeds of around 1KB/sec. This obviously implies that I've played Solitaire a LOT over the month, and this allowed me to make a few observations about it in the progress. Here goes:<p>
+<p>
+1) No matter how many times you hit F2 (New Deal) under a second, the deal won't change and you'll end up with the same decks of cards. This kind of implies that their new deal function (which would be using a randomise function) is using the current system time for a seed value.<p>
+<p>
+2) This observation was made possible thanks to all the malware who've worked persistently to slow down my system. Upon opening a new card from the deck on the top left (after there's another card already open on the same deck), and then hitting undo, you can see (only on my machine of course, because mine's the only slow system on the planet) the entire set of cards upto the previous one flashing by, one after the other. So my guess is, all decks are being maintained as linked lists with a pointer to the card on top and the one just before it. When you opt to undo your action, the entire linked list is traversed (and shown on screen) upto the previous one with the help of the 'previous-card' pointer. Guess they took advantage of processor speeds to hide it from the user under normal circumstances. :P<p>
+<p>
+I might be wrong (my guesses usually suck), so feel free to correct me. And do let me know if you've made any observations as well. :)<p>
+<p>
+Happy New Year and uhm... Happy Solitairing. :)

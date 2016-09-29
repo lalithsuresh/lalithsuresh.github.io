@@ -4,14 +4,20 @@ title: about
 permalink: /about/
 ---
 
-<img class="col one right" src="/img/prof_pic.jpg">
+<img class="col one right ImageBorder" src="/img/prof_pic.jpg" style="width:150px;height:200px;">
 
 <br/>
-Write your biography here. Tell the world about yourself. Link to your favorite <a href="http://reddit.com" target="blank">subreddit</a>. You can put a picture in, too. The code is already in, just name your picture "prof_pic.jpg" and put it in the img folder. 
 
-Link to your social media connections, too. This theme is set up to use <a href="http://fortawesome.github.io/Font-Awesome/" target="blank">Font Awesome icons</a>, like the ones below. Add your facebook, twitter, linkedin, or just disable all of them. 
+I’m Lalith Suresh, a computer engineer by trade. I conduct research on distributed systems with the awesome folks at <a href="https://research.vmware.com/">VMware Research</a>.
 
+  <p>Prior to my current position, I was a PhD student at <a href="http://www.tu-berlin.de">Technische Universität Berlin</a>,
+   where I was advised by <a href="http://net.t-labs.tu-berlin.de/~anja/">Prof. Anja Feldmann</a> and <a href="http://perso.uclouvain.be/marco.canini/">Prof. Marco Canini</a>. Before my PhD, I obtained a joint
+    Masters degree in distributed computing from <a href="http://www.kth.se/en/studies/master/em/emdc">KTH, Stockholm and IST, Lisbon</a>
+    in June 2012. </p>
 
+I can be reached preferably via email at: suresh dot lalith at gmail.
+
+<!--
 <br/>
 <hr/>
 <br/>
@@ -26,4 +32,4 @@ Link to your social media connections, too. This theme is set up to use <a href=
 <div class="col three caption">
 	You can even add a little note about which of these is the best way to reach you.
 </div>
-
+-->

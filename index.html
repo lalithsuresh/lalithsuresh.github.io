@@ -1,24 +1,38 @@
 ---
 layout: default
 ---
-
+<!--
 <div class="header-bar">
-  <h1>*folio</h1>
-  <h2>simple whitespace theme</h2>
+  <h1>Comfortably Geek</h1>
+  <h2></h2>
   <br/>
   <hr>
   <br/>
 </div>
-
+-->
 
 <ul class="post-list">
     {% for post in paginator.posts %}
       <li>
         <h2><a class="post-title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
-        <p class="post-meta">{{ post.date | date: '%B %-d, %Y — %H:%M' }}</p>
+        <p class="post-meta">{{ post.date | date: '%B %-d, %Y' }}</p>
         <p>{{ post.description }}</p>
         <br/>
         <hr/>
       </li>
     {% endfor %}
 </ul>
+
+
+<!-- Pagination links -->
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>
+  {% else %}
+    <span class="previous">Previous</span>
+  {% endif %}
+  <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+  {% else %}
+    <span class="next ">Next</span>
+  {% endif %}

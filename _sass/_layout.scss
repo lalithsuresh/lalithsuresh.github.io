@@ -49,6 +49,10 @@ display: line;
     }
 }
 
+.site-title-nav {
+margin-right: 80px;
+}
+
 .header-bar{
     left: 0px;
     top: 0px;
@@ -132,7 +136,7 @@ text-align: center;
 margin-bottom: $vertical-spacing-unit;
 }
 .post-title {
-font-size: 42px;
+font-size: 22px;
 letter-spacing: -1px;
 line-height: 1;
 @include media-query($on-laptop) {

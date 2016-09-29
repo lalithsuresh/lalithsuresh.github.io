@@ -1,0 +1,37 @@
+---
+layout: post
+title: ! 'Paper review: Adaptive Offloading for Pervasive Computing'
+categories:
+- Distributed Systems
+- Paper Review
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  _elasticsearch_indexed_on: '2011-04-20 12:00:04'
+---
+<p style="text-align:left;">My friend <a href="http://www.ljungblad.nu">Marcus</a> recently suggested a good idea to keep track of papers that we read by writing a publicly available review about the work. So here's the first in a series of such posts.</p>
+<p style="text-align:left;"><strong>Title</strong>: Adaptive Offloading for Pervasive Computing</p>
+<p style="text-align:left;"><strong>Authors</strong>: Xiaohui Gu and Klara Nahrstedt (UIUC), Alan Messer, Ira Greenberg, and Dejan Milojicic (HP Labs)</p>
+<strong>Motivation</strong>: Certain applications have high memory requirements, and thus cannot be easily run on resource constrained devices like mobile devices which are an essential component of pervasive computing environments. In lieu of such constraints, the authors propose a scheme wherein the deployment of such applications on mobile devices is made possible by "offloading" objects in the code (the paper assumes an object oriented language like Java or C#) onto a network-nearby device, hereafter referred to as the surrogate. This needs to be achieved by keeping the application completely oblivious to what's happening underneath.
+
+<strong>The problem</strong>: when to trigger an offload, and which objects to offload.
+
+<strong>Assumptions in the paper</strong>: Object oriented languages need to be used. High speed wireless link required.
+
+<strong>Summary</strong>:
+
+The core of the work involves describing each Java program as a graph of classes called the Application Execution Graph (AEG). Classes are chosen as the basic unit for representing an application because: 1) Classes map directly to interactions in the system, 2) classes allow more precise/fine-grained decision making for the offloading process (while this line isn't explained clearly, I believe it has to do with the next point) 3) The said interactions are easier to represent with classes than with several thousand Java objects.
+
+The graph of classes is to be partitioned into two chunks, one of which will remain on the device, and will be locally referenced, whereas the remaining chunk will be offloaded onto another device called the surrogate, usually a desktop or some non-resource-constrained device. Objects on the surrogate will be referenced using remote object invocations. This partitioning will be transparent to the application itself. This means that the Java application would be completely oblivious to the physical locations of the objects that it's dealing with, but the underlying VM will perform this partitioning, and will use local or remote invocations as would be the case. The VM used for the work was HP's Chai JVM.
+
+The AEG has weights for the nodes, and the edges. Weights are assigned to the nodes based on the access frequency of the class, the memory size of an instance of the class, the current location of the object, and whether the object _has_ to be on the device (device specific classes like a touchscreen reader for instance, which make no sense on the surrogate). The last property is called the <em>IsNative</em> property.
+
+The partitioning of the AEG is performed using a min cut algorithm, using the weights described above as a parameter for deciding the cut itself. Since determining the min-cut of a graph is an NP-Complete problem, the algorithm produces several possible min cut partitions, and maintains a set of such partitions. In run-time, one of these partitions is picked, depending on what is felt to be most optimal, given the particulars of the constraints in that scenario. All classes which have the <em>IsNative</em> property set to true, are bound to the device and will _not_ be offloaded to the surrogate.
+
+The architecture of the proposed solution is decomposed into a form wherein resource constraints are expressed using Fuzzy Logic. The fuzzy values like "low" and "high" depend on the application itself. Each application can have its own rules for the partitioning of the AEG. Depending on the rules and the current status of resource availability (like bandwidth and memory), we can pick the appropriate partition of the AEG that was generated in the step above. The partitioning is performed in a timely manner such that this computation needn't be performed when an offload has to be initiated, and we already have a partition available when we hit the resource limit.
+
+The solution was evaluated in a real setting (for a change!) and tools like Dia, Biomer and Java Notes was run. I won't be elaborating much on the evaluation itself, as it is clearly explained in the paper. I don't consider it very strong, as it does not explore cases where bandwidth was constrained, but it's still better than some other evaluations out there.
+
+<strong>Weaknesses in the work</strong>: Surrogates cannot be migrated on the fly, and this restricts how _far_ the mobile client can stray away from the surrogate. Furthermore, hacking the VM to achieve this may impact portability of the code, but this is much better than having to re-write applications.

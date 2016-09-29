@@ -1,0 +1,39 @@
+---
+layout: post
+title: tcp_probe no workey?
+categories:
+- Linux
+- Programming
+tags:
+- Linux
+- tcp_probe
+status: publish
+type: post
+published: true
+meta:
+  publicize_results: a:1:{s:7:"twitter";a:1:{i:18867264;a:2:{s:7:"user_id";s:12:"lalithsuresh";s:7:"post_id";s:18:"172378250193010689";}}}
+  _wpas_done_twitter: '1'
+  _wpas_skip_fb: '1'
+  tagazine-media: a:7:{s:7:"primary";s:0:"";s:6:"images";a:0:{}s:6:"videos";a:0:{}s:11:"image_count";s:1:"0";s:6:"author";s:7:"4406157";s:7:"blog_id";s:7:"4169371";s:9:"mod_stamp";s:19:"2012-02-22
+    18:08:32";}
+  _elasticsearch_indexed_on: '2012-02-22 17:52:30'
+---
+tcp_probe is a very handy utility in Linux to observe TCP flows. Implemented as a Linux kernel module, all you have to do is:</br><p>
+<pre><p>
+$: modprobe tcp_probe [port=]<p>
+$: cat /proc/net/tcpprobe &gt; logfile.out</pre></br><p>
+...and you'll get clear statistics about whatever TCP flows go through 'port' (and of all TCP flows if you specify the port as 0).<p>
+<p>
+Earlier today, I ran into a situation where tcp_probe would stop logging flows after a couple of seconds, and it always seemed to be around the 10th second in an experiment I was trying (which involved iperf-ing over a wireless link). Some quick searches made it clear that others were encountering it as well, but no one really had a solution for them. Odd.<p>
+<p>
+And what do you do when Google can't help you find the answer? You look through the source code of course!<p>
+<p>
+Within a few seconds of going through <a href="http://lxr.free-electrons.com/source/net/ipv4/tcp_probe.c">tcp_probe.c</a>, I had my answer before me. Have a look at lines 47-49 and you'll know what was wrong in my case.</br><p>
+<pre>static int full __read_mostly;<p>
+MODULE_PARM_DESC(full, <em>"Full log (1=every ack packet received, 0=only cwnd changes)"</em>);<p>
+module_param(full, int, 0);</pre></br><p>
+In short, I was on a wireless channel without any nodes apart from my wireless interface and the access point, and my congestion window size was getting maxed out around the 10th second. Since tcpprobe by default logs a packet only if the congestion window size changes, I couldn't see any more packets of the flow I was looking at in /proc/net/tcpprobe.<p>
+<p>
+So the solution?</br><p>
+<pre>$: modprobe tcp_probe &lt;args&gt; full=1</pre></br><p>
+Note that you might want to look at the log buffer size parameter (bufsize) as well, because tcp_probe happily ignores packets once your log buffer is filled.

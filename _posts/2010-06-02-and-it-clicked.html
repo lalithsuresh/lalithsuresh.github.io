@@ -1,0 +1,24 @@
+---
+layout: post
+title: And it Click(!)ed
+categories:
+- FOSS
+- GSoC
+- NS-3
+tags:
+- Click
+- foss
+- GSoC
+- ns-3-click
+- ns3
+status: publish
+type: post
+published: true
+meta:
+  _elasticsearch_indexed_on: '2010-06-02 09:47:03'
+---
+Another ns-3-click update from my side.
+
+The <code>Ipv4ClickRouting</code> class is almost done. I tried writing some sample to code to get a Click router based node to send a packet, and have another similar node receive it via a CSMA link. And it actually works! w00t! :)
+
+Meanwhile, it seems like I'm going to have to deviate from my proposal a bit. The project proposal talked about using Click strictly for layer 3 services only. This meant that we were to stay away from using Click's MAC layer functionality for the time being. This naturally means that once a Click graph is processed, we'll need to receive the packet on the ns-3 side as an IP packet, as opposed to an Ethernet encapsulated one. The original plan was to send this IP based packet down to a node's <code>Ipv4Interface</code>, from which point onwards, we'd be following the normal ns-3 path of a packet. But this has complications of its own, the most important of them being the fact that we can't perform a <code>RouteOutput()</code> query when using external routers like Click. <code>RouteOutput()</code>, in a normal scenario, returns the route that the packet is to follow, which is a method provided by the <code>Ipv4RoutingProtocol</code> instance of a node. Thus, given an IP packet returned from Click, we have no way of knowing what the 'next hop' destination of the packet is, which needs to be known in order to forward a packet. I'm presently proposing to directly send this packet down a node's <code>NetDevice</code>, thus bypassing even the <code>ArpL3Protocol</code>. The advantage with this scheme is that a user gets to test the _whole_ of his Click graph as it is! The only disadvantage is that we need to extract the required MAC layer details from the packet and strip off the packet's Ethernet header before forwarding it down the <code>NetDevice</code>, since all the <code>NetDevice</code> subclasses append an ethernet header in their <code>Send()</code> methods. While this is hardly 10 lines of code, purists may argue that a packet going down a stack never needs to have a packet stripped off it. Oh well. I'm presently trying to discuss this on the ns-developers mailing list. Let's see what everyone else thinks. :)

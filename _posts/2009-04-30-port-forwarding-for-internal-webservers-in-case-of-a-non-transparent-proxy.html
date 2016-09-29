@@ -1,0 +1,42 @@
+---
+layout: post
+title: Port forwarding for internal webservers in case of a non-transparent proxy
+categories: []
+tags:
+- dnat
+- firewall
+- proxy
+- shorewall
+status: publish
+type: post
+published: true
+meta:
+  _elasticsearch_indexed_on: '2009-04-30 10:18:11'
+---
+Assume that you're running a two interface firewall setup using Shorewall for your institute LAN. Suppose you have an internal webserver that you want to be made visible externally as well. To achieve this, you'd normally do a port forward using DNAT. Although this method gets a FAIL when it comes to security, it's usually the easiest thing to do. The suggested alternative would obviously be to get an extra NIC and setup a DMZ but anyways I'll be talking about a two interface setup here. Now this port forwarding thing works fine but what happens when a host in the internal network tries to access this website through the URL? The request will go out of the network, come back in and the response would follow the reverse route and this will take ridiculously long! There are two workarounds for this. The recommended method would be to configure your internal DNS to respond with the internal IP when a DNS query for the webserver's URL is received. The other method would be to have your gateway masquerade as the internal webserver, which is nothing short of a quick hack and note that this is also rather poor when it comes to security. As per the shorewall website, for a transparent proxy, you'll need to add the following rules.<p>
+<p>
+Example IP addresses:<p>
+<p>
+Gateway's external interface (eth0): <span style="color:#000080;">210.45.21.55</span><p>
+<p>
+Gateway's internal interface (eth1) : <span style="color:#000080;">192.168.1.1</span><p>
+<p>
+Internal Webserver: <span style="color:#000080;">192.168.1.10</span><p>
+<p>
+So here come the rules:<p>
+<p>
+<strong>In/etc/shorewall/rules:</strong><p>
+<p>
+<span style="color:#000080;">REDIRECT        loc     3128    tcp     www     -       !210.45.21.55</span><p>
+<p>
+<span style="color:#000080;">DNAT              loc     loc:192.168.1.10      tcp     www     -       210.45.21.55</span><p>
+<p>
+<strong>In/etc/shorewall/masq:</strong><p>
+<p>
+<span style="color:#000080;">eth1:192.168.1.10        eth1           192.168.1.1      tcp     www</span><p>
+<p>
+In <strong>/etc/shorewall/interfaces</strong>, make sure you have the 'routeback' option enabled for eth1.<p>
+<p>
+Now here's the part that you won't find in the shoerwall documentation. In case you're migrating to a non-transparent proxy, add the following rule after the above mentioned DNAT.<p>
+<p>
+<span style="color:#000080;">DNAT    $FW     loc:192.168.1.10:80      tcp     80      -       210.45.21.55</span>

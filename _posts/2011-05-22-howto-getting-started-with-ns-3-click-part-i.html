@@ -1,0 +1,70 @@
+---
+layout: post
+title: ! 'HOWTO: Getting started with ns-3-click - Part I'
+categories:
+- FOSS
+- NS-3
+tags:
+- foss
+- ns-3-click
+- ns3
+status: publish
+type: post
+published: true
+meta:
+  _wpas_skip_twitter: '1'
+  _wpas_skip_fb: '1'
+  _elasticsearch_indexed_on: '2011-05-22 21:44:18'
+---
+Since its development, I've been seeing a lot of requests for an ns-3-click 101. So with no further ado, here's the first in a series of tutorials to help you get an idea of how to go about using ns-3-click. In this article, I'll provide an idea of what ns-3-click is and how to install it .<p>
+<p>
+<span style="text-decoration:underline;"><strong>1. What is ns-3-click?</strong></span><p>
+<p>
+ns-3-click, or the NS-3 Click Integration, is a feature of the ns-3 tool which allows a user to use a Click Modular Router instance to handle an ns-3 node's layer 3 functionality. Click is an architecture for designing highly flexible router configurations. Basically, it offers a large number of fine grained packet processing units called "elements", which can be put connected in various combinations into a Click graph. A Click graph defines a particular configuration for a router. The motivation for bringing Click into ns-3 is simple. Click users get to test their Click graphs in a powerful simulation environment which ns-3 offers, and ns-3 benefits from the large feature set that Click brings with it in the form of elements. In ns-3-click, the design choice was to entirely delegate ns-3's layer 3 functionality to Click. This means that an ns-3 node running a Click router will now have to use Click's implementations of ARP, routing tables and so forth.<p>
+<p>
+So before you get started with ns-3-click, I suggest going through [0] and [1]. The first paper should tell you everything you need to know about what Click is, and the second one will inform you about where Click fits into ns-3. The latter will help you understand what ns-3-click can or cannot do for you.<p>
+<p>
+<strong><span style="text-decoration:underline;">2. Installation</span></strong><p>
+<p>
+By now, you know what ns-3-click is, and its time to get your hands dirty. The first step is to download and build Click.<p>
+<p>
+<code>$: git clone git://read.cs.ucla.edu/git/click DIR<p>
+$: cd DIR<p>
+$: ./configure --enable-nsclick --enable-userlevel<p>
+</code><p>
+<p>
+Note: If you require additional modules, enable them as required using the --enable-&lt;module&gt; flag.<p>
+<p>
+Now build Click:<p>
+<p>
+<code> $: make<p>
+</code><p>
+<p>
+Once this is complete, we need to build ns-3 and point it to the Click source we've just compiled. So let's proceed to fetch and build ns-3. Note that ns-3-click was merged post ns-3.10, and will be released with ns-3.11. It is currently available in ns-3-dev.<p>
+<p>
+<code>$: hg clone http://code.nsnam.org/ns-3-dev<p>
+$: cd ns-3-dev<p>
+$: ./waf configure --with-nsclick=&lt;path-to-click-source&gt; --enable-examples</code><p>
+<p>
+Once the last command has finished executing, you should see a list of features/modules that have been enabled. At this point, you should see the following line:<p>
+<p>
+<code>NS-3 Click Integration        : enabled</code><p>
+<p>
+Now, let's build ns-3:<p>
+<p>
+<code>$: ./waf build<p>
+</code><p>
+<p>
+If all goes well, ns-3 should now be built successfully. To test whether things went well, try running one of the example scripts.<p>
+<p>
+<code>$: ./waf --run nsclick-simple-lan</code><p>
+<p>
+This should generate some PCAP traces (nsclick-simple-lan-*.pcap). If you see packets being exchanged in there, then you're good to go!<p>
+<p>
+This concludes part I of the ns-3-click tutorial. In the next part, I'll provide a code walk through of a simple example script that uses ns-3-click. If you find any bugs with ns-3-click, please don't hesitate to file a bug report on our <a href="http://www.nsnam.org/bugzilla/">bugzilla</a>. :)<p>
+<p>
+<span style="text-decoration:underline;"><strong>References</strong></span><p>
+<p>
+<em>[0] Eddie Kohler, Robert Morris, Benjie Chen, John Jannotti, and M. Frans Kaashoek, "The Click Modular Router". ACM Transactions on Computer Systems 18(3), August 2000, pages 263-297. (<a href="http://pdos.csail.mit.edu/papers/click:tocs00/paper.pdf">Paper</a> from the MIT-PDOS page)</em><p>
+<p>
+<em>[1] Lalith Suresh P., Ruben Merz, ”NS-3-Click: Click Modular Router Integration for NS-3”. In Proc. of 3rd International ICST Workshop on NS-3 (WNS3), Barcelona, Spain. March, 2011. <a href="http://lalith.in/wp-content/uploads/2008/12/wns3-ns3click-2011.pdf">paper</a></em>

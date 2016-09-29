@@ -1,0 +1,40 @@
+---
+layout: post
+title: Magic Numbers in Distributed Systems
+categories:
+- Distributed Systems
+tags:
+- byzantine fault tolerance
+- distributed systems
+- fault tolerance
+status: publish
+type: post
+published: true
+meta:
+  _elasticsearch_indexed_on: '2011-06-23 17:54:27'
+---
+
+I'm officially done with the first half of my masters as of now, and it's been a fun swim so far in the violent sea of distributed systems, which by the way, is a really big <a href="http://zookeeper.apache.org/">zoo</a> where anything can go wrong. To quote <a href="http://en.wikipedia.org/wiki/Leslie_Lamport">Leslie Lamport</a>:<p>
+<blockquote>A distributed system is one in which the failure of a computer you didn't even know existed can render your own computer unusable"</blockquote><p>
+Thus, researchers over the last few decades have gone through great lengths to design distributed algorithms that ensure correct behaviour in the light of node failures and random activity by other processes. But if you're a student and you're going through these algorithms, it's not entirely obvious what some of the magic numbers mean at times, and what the intuition is behind them that ensures that an algorithm works correctly. This post is meant to help in that direction. As per distributed systems convention, <em>N</em> refers to the number of processes in the system and <em>F</em> refers to the number of failures that can be tolerated.<p>
+<ul><p>
+	<li><strong>\(N/2\)<p>
+</strong></span>This is a simple majority "quorum". There are many algorithms that exploit the fact that two quorums overlap in at least one process. Let's take an example to illustrate this. Consider a system with <em>N</em> processes, serving as a distributed replicated database. There is a single process writing to the database and there can be more than one reader. One approach to doing this would be to have the writing process write to at least \(\lceil N/2\rceil + 1\) replicas. If the reading process reads from at least \(\lceil N/2\rceil + 1\) nodes, there will be at least one replica which has seen the latest write. This can used in scenarios where only less than half the nodes can fail. Some examples include <em>Majority ACK Uniform Reliable Broadcast, Majority Voting Regular Register, </em>and <em>Read Impose Write Majority (1,N) Atomic Registers</em>.</li><p>
+<p>
+	<li><strong>\((N+F)/2\)<p>
+</strong></span>Referred to as "Byzantine Quorum", this one's a bread and butter number for many <a href="http://en.wikipedia.org/wiki/Byzantine_fault_tolerance">Byzantine Fault Tolerant algorithms</a>, which are algorithms that tolerate arbitrary failures. This means that the distributed algorithm produces a correct result in spite of having processes that either do not respond, send out garbage values and so forth. The behaviour can be either due to faulty hardware, software, or due to control by a malicious user. The essence of the number itself is that any two sets of size \(\lceil(N+F)/2\rceil + 1\) overlap in at least one correct process. This is valid only when \(N > 3F\) (you can learn the "why" behind this from the <a href="http://research.microsoft.com/en-us/um/people/lamport/pubs/byz.pdf">Byzantine Generals Problem</a>). Example algorithms: <em>Authenticated Data Byzantine Quorum based Regular Register </em>and<em> Byzantine Randomised Consensus.<p>
+</em></li><p>
+<p>
+	<li><strong>\( > (N+2F)/2\)<p>
+</strong></span>This is known as a Byzantine Masking Quorum. The intuition here is that any two quorums of size \(\lceil (N+2F)/2 \rceil+ 1\) will overlap in \(2F + 1\) processes, thus ensuring that you have a worst case split up of \(F+1\) correct processes and \(F\) faulty ones. Note that \(N > 4F\) is necessary for this condition to be true. This is particularly useful in the context of Byzantine Registers, and can be seen in algorithms that implement Byzantine Safe Registers. Let's take the example of our distributed replicated database that we'd discussed above, but with byzantine faults.  The writing node attempts to write to all nodes and returns from the write upon receiving ACKs from \(\lceil (N+2F)/2\rceil + 1\) replicas. A node that needs to read from the replicated servers reads from any \(\lceil (N+2F)/2\rceil + 1\) nodes, and only picks a value if it has more than \(F\) occurrences in the set that was read (the Byzantine process can return garbage values upon the read request). The \(\lceil (N+2F)/2\rceil + 1\) guarantees that there would be at least \(F+1\) correct processes in such a set so that reads that are not concurrent with a write will for sure give you \(F+1\) correct and up-to-date values.</li><p>
+<p>
+	<li><strong>\(F\)<p>
+</strong></span>This one is pretty straightforward, and you begin seeing this as soon as you're dealing with algorithms wherein processes crash. If you receive a message from at least \(F+1\) processes, then you're sure that you've received the message from at least one correct process (a process that <em>will not</em> fail).</li><p>
+<p>
+	<li><strong>\(2F\)<p>
+</strong></span>Follows from the previous one, this ensures that if you receive \(2F + 1\) messages, you're sure that more than one correct processes is part of this set. This is particularly seen in Byzantine Algorithms where making a decision based on \(> F\) is risky. For instance, consider situations where uniform agreement is required. One such example is that of Leader Election in a distributed system. For correct functioning of the system, it is entirely necessary that all nodes have the same view of who the leader is. The algorithm fails if two nodes have picked two different nodes as their respective leaders, and in the presence of byzantine faults, this is quite possible. Consider the <em>Rotating Byzantine Leader Detection</em> algorithm wherein nodes can choose to "complain" about the current leader under the suspicion of being byzantine. A node decides that it should shift to the next leader when it hears at least \(> 2F\) complaints. Here's why we can't use \(> F\) alone over here. Let's assume our system should tolerate one byzantine fault \((F = 1)\). Assume, that a process P incorrectly suspects the current leader (who is legitimate) of being byzantine and broadcasts a "complaint" message. Now a byzantine node in the same system can go against the protocol, and send process P a "complaint" message, at which point process P now has \(> F (2 > 1)\) complaints about the current leader, causing it to change leaders. Since the byzantine process sent the complaint message only to process P and not the other processes in the system (who didn't find anything strange about the leader in order to complain), we now have process P with a leader \(L_{new}\) and the remaining processes at leader \(L_{old}\) such that \(L_{new} != L_{old}\). Byzantine process wins. On the other hand, if you rely on the \(2F + 1\) magic number, you're sure that there are at least \(F+1\) correct entries in your set.</li><p>
+<p>
+	<li><strong>\(N-F\)<p>
+</strong></span>In algorithms where faulty nodes have the liberty of "not responding" (crash-stop processes for instance), \(N-F\) is the lowest number of responses you can hope to get if you ping all processes in the system. In byzantine scenarios, a set of \(N-F\) processes contains at least \(N-2F\) correct processes (\(F\) responses out of \(N-F\) can be corrupt). This number can be seen in many algorithms which require uniform agreement, one example being <em>Byzantine Randomized Consensus</em>.</li><p>
+</ul><p>
+That's it for now.

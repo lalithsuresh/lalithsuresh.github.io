@@ -1,0 +1,20 @@
+---
+layout: post
+title: GSoC 2010 Wrap Up
+categories:
+- FOSS
+- GSoC
+- NS-3
+tags:
+- foss
+- GSoC
+- ns-3-click
+- ns3
+status: publish
+type: post
+published: true
+meta:
+  _wp_old_slug: ''
+  _elasticsearch_indexed_on: '2010-08-21 09:05:24'
+---
+So it's official, I've successfully cleared Google Summer of Code 2010! It's really good to see ns-3-click is being welcomed with open arms by the community! Even better, it's already being used, even before the merge with ns-3-dev. Thanks to that, I was able to spot a few bugs in the code, one of which was a really ugly memory leak. The formal review is going on as of now, and with a little more time, I guess it should be ready for a merge with ns-3-dev. The only concern some of the developers have raised with my code is that I'm introducing a dependency with the Click L3 inside the Csma and Wifi NetDevice code. I knew I wouldn't get away with that too easily, but I couldn't figure out a better way of getting it done! :P Waiting for some good feedback here. :)

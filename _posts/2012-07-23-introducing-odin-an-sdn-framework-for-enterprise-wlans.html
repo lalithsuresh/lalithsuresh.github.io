@@ -1,0 +1,50 @@
+---
+layout: post
+title: ! 'Introducing Odin: an SDN framework for enterprise WLANs'
+categories:
+- Click
+- Distributed Systems
+- FOSS
+- Programming
+- SDN
+tags:
+- distributed systems
+- enterprise wlans
+- hotsdn
+- odin
+- openflow
+- sdn
+- sigcomm
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_facebook: '1'
+  _wpas_done_twitter: '1'
+  tagazine-media: a:7:{s:7:"primary";s:0:"";s:6:"images";a:0:{}s:6:"videos";a:0:{}s:11:"image_count";i:0;s:6:"author";s:7:"4406157";s:7:"blog_id";s:7:"4169371";s:9:"mod_stamp";s:19:"2012-07-23
+    21:04:43";}
+  _elasticsearch_indexed_on: '2012-07-23 21:03:01'
+---
+I've been putting this off for a while, but I guess it's high time I blogged about my <a href="http://lalithsuresh.files.wordpress.com/2011/04/lalith-thesis.pdf">master's thesis</a> project. The work is due to be presented at  <a href="http://conferences.sigcomm.org/sigcomm/2012/cfd.php">SIGCOMM '12</a>; we have a paper accepted at <a href="http://conferences.sigcomm.org/sigcomm/2012/hotsdn.php">HotSDN '12</a>, and an accepted demo for the main conference track. So here goes!<p>
+<h3><span style="text-decoration:underline;"><strong>Motivation:</strong></span></h3><p>
+We consider the specific case of enterprise WLANs, which have a very diverse set of requirements. Typical enterprise WLAN deployments consist of access points (APs), WLAN controllers, management systems, and a set of network services like mobility managers, load balancers, dynamic channel reconfiguration systems, and mechanisms to enforce policies. Enterprise WLAN vendor solutions today span the entire stack, ranging from AP hardware, to the controllers, and the network services. Unfortunately, these systems are proprietary and closed-source, leading to vendor-lock in, and limited flexibility.<p>
+<p>
+However, the software-defined networking paradigm, enabled greatly through the adoption of OpenFlow by different vendors, allows one to easily introduce new features into a network. One can now write "network applications", that can programmatically orchestrate the network, thus allowing for greater flexibility with the control plane.<p>
+<p>
+That said, our research has focused on the following question: "What do we need to write network applications for enterprise WLANs?"<p>
+<p>
+The short answer is that OpenFlow alone does not suffice, and that we need some additional plumbing to be able to write network applications that extend into the realm of the 802.11 MAC. Our aim is to come up with useful abstractions that allow a programmer to express typical enterprise WLAN services as network applications, without having to introduce any hardware or software modifications to the 802.11 client.<p>
+<h3><strong><span style="text-decoration:underline;">Light Virtual Access Points (LVAPs):</span></strong></h3><p>
+In a regular WiFi setting, the client associates with an AP on the basis of locally-made decisions. The infrastructure has limited control over the client's point of association to the network, and cannot instruct a client to handoff to another AP without subjecting the client to a handoff delay (which isn't a pleasant experience for the user). Additionally, every handoff involves state machine changes at the client, AP, and authentication server. We feel that it would be cumbersome (and error-prone) if the programmer of an enterprise WLAN network application were to handle these state machine changes every now and then. The essence of the problem is basically this: a client's association is defined by the mac address of the client's interface, and the mac address of the AP, both of which are physical devices, and of which only one is mobile. To overcome this, we introduce Light Virtual Access Points (LVAPs).<p>
+<p>
+An LVAP is basically a per-client, virtual AP. Every time a client performs a probe scan, a central controller spawns an LVAP on a physical AP close to the client (an analogy would be to spawn a virtual machine on a physical server). The LVAP is what responds to the client's probe scan with a probe response. The client can then continue the regular 802.11 association handshake with the LVAP. Once this is done, we've now formed an association between a client device capable of mobility, and an LVAP. At this point, the client is only concerned with getting ACKs for the data frames it generates, and receiving beacons from its LVAP in a timely fashion. Just like virtual machines in a data center can be migrated to a different physical server, an LVAP can be migrated to another physical AP. If an LVAP is migrated to another physical AP fast enough such that it retains all the necessary state to maintain its associations, and the client continues to receive ACKs and beacon frames, then the client can continue transmitting data frames without having to perform a re-association. Thus, an LVAP migration gives you the effect of a handoff, without actually inducing a state machine change at the client, and if this is done fast enough, the client won't even notice any period of disconnectivity. This works because the client only cares about the responses it gets from an AP (identified by a BSSID), and is oblivious to the actual <em>physical radio </em>that is generating these responses. LVAPs thus decouple the association state of a WiFi link from the physical APs in the network. This setup makes clients see the same consistent virtual AP regardless of the actual physical AP the client is within range of.<p>
+<p>
+We thus designed Odin, which uses the LVAP abstraction to design network applications. An advantage with using LVAPs is that the programmer always sees a consistent link between the client and the network, defined by the BSSID of the LVAP and the mac address of the client device.<p>
+<h3><strong><span style="text-decoration:underline;">Odin:</span></strong></h3><p>
+Odin's architecture comprises of a single master, and a set of agents that run on the APs. The master is implemented as an OpenFlow application on top of the awesome <a href="http://floodlight.openflowhub.org/">Floodlight</a> controller from <a href="http://www.bigswitch.com/">BigSwitch Networks</a>. The agents are implemented using the <a href="http://www.read.cs.ucla.edu/click/click">Click Modular Router</a>, and run on the APs. The APs run Open vSwitch so that OpenFlow rules can be installed at each AP as well (every LVAP has a set of OpenFlow rules attached to it, which enable faster mobility, and can potentially be used to do access control as well).  Odin applications run atop the master, and control the placement of LVAPs. For instance, a mobility manager would attempt to place the LVAPs as close to the client as possible, and a load balancer would move LVAPs between physical APs such that the APs have an even processing load. Applications written on top of Odin can be both reactive, and proactive. Reactive applications use a pub-sub mechanism to receive notifications for specific MAC layer events that they can subscribe to. Proactive applications merely run within a loop, cycling between sleeping and doing some work.<p>
+<h3><strong><span style="text-decoration:underline;">Current Status:</span></strong></h3><p>
+Odin is currently deployed in the <a href="http://www.bowl.tu-berlin.de/">Berlin Open Wireless Lab's (BOWL)</a> indoor testbed, and is being used by some of our users. I for one, use Odin for my daily network access needs (oh the joy of dog fooding!).<p>
+<h3><strong><span style="text-decoration:underline;">On-going Work:</span></strong></h3><p>
+We're currently in the process of supporting authentication more cleanly, are aiming for larger deployments, looking at multiple-channel configurations, and are also trying to design new applications and abstractions for Odin. That's a *lot* of work indeed, but we're pretty excited about what we're building. :)<p>
+<h3><strong><span style="text-decoration:underline;">Code:</span></strong></h3><p>
+Odin is available as an open source project on <a href="https://github.com/lalithsuresh/odin">Github</a>. Patches and feedback are more than welcome!

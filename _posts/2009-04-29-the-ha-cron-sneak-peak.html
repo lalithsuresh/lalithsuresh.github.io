@@ -1,0 +1,25 @@
+---
+layout: post
+title: A sneak peak into HA-Cron
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  _elasticsearch_indexed_on: '2009-04-29 13:01:30'
+---
+I can't believe it took me so long to blog about this project of mine, considering the fact that I'm almost done with it's development and I also gave a talk on it at Sun Tech Days 2009. This was originally proposed by the Solaris Cluster team for a workout at FOSS.IN 2008 but wasn't selected, so I thought I'd take it up as my Sun Code For Freedom Contest project. This is one out of two proposals of mine for the contest, the other being HA-Zabbix which I haven't started working on. :P<p>
+<p>
+Now that I've bored you with the history, I'll move on to telling you all about what HA-Cron is and it's relevance.<p>
+<p>
+Those of you familiar with what high availability clustering is would have easily guessed by now as to what HA-Cron does. Anyways, one problem with an HA cluster is that when a failover happens, the failed node's cron jobs remain there itself and do not carry over to the new node. This naturally implies that the system administrator will have to manually intervene every time a failover occurs which goes against the whole idea of high availability clustering itself, where the key is to keep the recovery from a failure smooth and automated. So HA-Cron is an agent for Open HA Cluster which keeps Cron highly available.<p>
+<p>
+Developed over the GDS template, HA-Cron accomplishes it's task by a set of simple procedures which are as follows:<p>
+<p>
+1) Upon turning an RG (resource group) online on a node, a backup is made of the original root crontab. Next, the cron jobs for that particular RG which are specified by the user in a file are added to the root crontab entry, and a test job is added to ensure that Cron itself is working properly.<p>
+2) Upon stopping an RG on a node, the cron jobs that belong to that RG are removed from the root crontab.<p>
+<p>
+You can check out the project's homepage <a href="http://hacron.dev.java.net">her</a>e. Please feel free to pool in your suggestions. :)<p>
+<p>
+Cheers!

@@ -1,0 +1,215 @@
+---
+layout: post
+title: ! 'HOWTO: Getting started with ns-3-click – Part II'
+categories:
+- FOSS
+- NS-3
+tags:
+- foss
+- ns-3-click
+- ns3
+status: publish
+type: post
+published: true
+meta:
+  _elasticsearch_indexed_on: '2011-06-01 23:31:13'
+---
+We now move into part II of the ns-3-click tutorial series wherein I'll walk you through an ns-3 script and explain how to load your Click scripts onto ns-3 nodes. This tutorial goes through the following steps:<p>
+<ol><p>
+	<li>Walkthrough of an example Click graph from ns-3-click.</li><p>
+	<li>Using the Click graph in an ns-3 simulation.</li><p>
+</ol><p>
+&nbsp;<p>
+<p>
+<span style="text-decoration:underline;"><strong>Walkthrough of an example Click graph from ns-3-click</strong></span><p>
+<p>
+The Click script I'll be explaining below is available in current ns-3-dev and stable releases from ns-3.11 onwards. You can find it in <code>src/click/examples/nsclick-lan-single-interface.click</code>.<p>
+<p>
+When working with ns-3-click, you will need to handle all layer 3 functionalities expected of a networked node from Click. The Click script that we'll be talking about here provides exactly this. It handles ARP, and forwards packets up and down the stack as required. It has a single network interface (eth0) to send and receive packets, and has a kernel interface (tap0) to send/receive packets from the kernel (in ns-3, this corresponds to communicating with layer 4).<p>
+<p>
+We first describe the interface to tap0 with the following functionalities:<p>
+<ol><p>
+	<li>All packets received from tap0 should be forwarded down to the stack.</li><p>
+	<li>All packets received from below the stack, destined to us, should be sent up the stack via tap0.</li><p>
+</ol><p>
+<p>
+[sourcecode]<p>
+elementclass TapSimHost {<p>
+$dev |<p>
+<p>
+// Packets go to tap0, which sends them to the kernel<p>
+input[0]<p>
+-&gt; ToDump(tokernel.pcap,2000,IP,PER_NODE 1)<p>
+-&gt; ToSimDevice($dev,IP);<p>
+<p>
+// Packets sent out by the kernel get pushed outside<p>
+FromSimDevice($dev,4096)<p>
+-&gt; CheckIPHeader2<p>
+-&gt; ToDump(fromkernel.pcap,2000,IP,PER_NODE 1)<p>
+-&gt; GetIPAddress(16)<p>
+-&gt; [0]output;<p>
+}<p>
+<p>
+kernel::TapSimHost(tap0);[/sourcecode]<p>
+&nbsp;<p>
+<p>
+The above snippet does exactly what we've described so far. We create an element class which has a single input and output. Packets received on the input are plumbed to tap0 (because $dev is now tap0, as per the instantiation in the last line). Packets received from tap0 are pushed outside. We now describe a LAN host, which will handle ARP, and check the destination IP to see if we should receive the packet.<p>
+<p>
+[sourcecode]<p>
+elementclass LanSimHost {<p>
+$ipaddr, $hwaddr |<p>
+<p>
+cl::Classifier(12/0806 20/0001,12/0806 20/0002, -);<p>
+forhost::IPClassifier(dst host $ipaddr,-);<p>
+arpquerier::ARPQuerier(eth0);<p>
+arpresponder::ARPResponder(eth0);<p>
+<p>
+ethout::Queue<p>
+-&gt; ToDump(out_eth0.pcap,PER_NODE 1)<p>
+-&gt; ToSimDevice(eth0);<p>
+<p>
+// All packets received on eth0 are silently<p>
+// dropped if they are destined for another location<p>
+FromSimDevice(eth0,4096)<p>
+-&gt; ToDump(in_eth0.pcap,PER_NODE 1,ENCAP ETHER)<p>
+-&gt; cl;<p>
+<p>
+// ARP queries from other nodes go to the ARP responder element<p>
+cl[0] -&gt; arpresponder;<p>
+<p>
+// ARP responses go to our ARP query element<p>
+cl[1] -&amp;amp;amp;amp;gt; [1]arpquerier;<p>
+<p>
+// All other packets get checked whether they are meant for us<p>
+cl[2]<p>
+-&gt; Strip(14)<p>
+-&gt; CheckIPHeader2<p>
+-&gt; MarkIPHeader<p>
+-&gt; GetIPAddress(16) // Sets destination IP address annotation<p>
+-&gt; forhost;<p>
+<p>
+// Packets for us are pushed outside<p>
+forhost[0]<p>
+-&gt; [0]output;<p>
+<p>
+// Packets for other folks or broadcast<p>
+// packets get sent to output 1<p>
+forhost[1]<p>
+-&gt; ToDump(discard.pcap,2000,PER_NODE 1,ENCAP IP)<p>
+-&gt; [1]output;<p>
+<p>
+// Incoming packets get pushed into the ARP query module<p>
+input[0]<p>
+-&gt; arpquerier;<p>
+<p>
+// Both the ARP query and response modules send data out to<p>
+// the simulated network device, eth0.<p>
+arpquerier<p>
+-&gt; ToDump(out_arpquery.pcap,PER_NODE 1)<p>
+-&gt; ethout;<p>
+<p>
+arpresponder<p>
+-&gt; ToDump(out_arprespond.pcap,PER_NODE 1)<p>
+-&gt; ethout;<p>
+<p>
+}<p>
+<p>
+lan::LanSimHost(eth0:ip,eth0:eth);<p>
+[/sourcecode]<p>
+&nbsp;<p>
+<p>
+Now that we have a LanSimHost type ready, and instantiated (in the last line indicated above), we perform the final plumbing required to connect our LanSimHost to our kernel tap device:<p>
+<p>
+[sourcecode]<p>
+// Users can do some processing between the two elements<p>
+lan[0] -&gt; kernel;<p>
+kernel -&gt; lan;<p>
+// Packets for others or broadcasts are discarded<p>
+lan[1] -&gt; Discard;<p>
+[/sourcecode]<p>
+<p>
+This concludes our description of the nsclick-lan-single-interface.click file. Let's now describe an ns-3 simulation script for our scenario.<p>
+<p>
+&nbsp;<p>
+<p>
+<span style="text-decoration:underline;"><strong>Using the Click graph in an ns-3 script</strong></span><p>
+<p>
+I'll now describe a simple ns-3 script which makes use of the above described Click graph. Not surprisingly, the script is named <code>nsclick-simple-lan.cc</code> and can be found within <code>src/click/examples/</code>. The simulation scenario is a simple one: two nodes A and B connected via a CSMA channel, with A sending B a stream of packets using a TCP connection. A is Click based, whereas B is a normal ns-3 node.<p>
+<p>
+The first step would be to create the nodes.<p>
+[sourcecode language="cpp"]<p>
+NodeContainer csmaNodes;<p>
+csmaNodes.Create (2);<p>
+[/sourcecode]<p>
+<p>
+Next, we create a CSMA channel.<p>
+[sourcecode language="cpp"]<p>
+CsmaHelper csma;<p>
+csma.SetChannelAttribute (&quot;DataRate&quot;, DataRateValue (DataRate (5000000)));<p>
+csma.SetChannelAttribute (&quot;Delay&quot;, TimeValue (MilliSeconds (2)));<p>
+NetDeviceContainer csmaDevices = csma.Install (csmaNodes);<p>
+[/sourcecode]<p>
+<p>
+We then install a normal internet stack on node B.<p>
+[sourcecode language="cpp"]<p>
+InternetStackHelper internet;<p>
+internet.Install (csmaNodes.Get (1));<p>
+[/sourcecode]<p>
+<p>
+And then setup a Click based internet stack on node A. We need to specify the Click script that the particular node is supposed to use, and in the event that we require a Click based node to run a traffic generator on top, we need to specify a routing table element for the node to use. This can be seen by the name "rt" at the end of the nsclick-lan-single-interface.click file.<p>
+[sourcecode language="cpp"]<p>
+ClickInternetStackHelper clickinternet;<p>
+clickinternet.SetClickFile (csmaNodes.Get (0), &quot;src/click/examples/nsclick-lan-single-interface.click&quot;);<p>
+clickinternet.SetRoutingTableElement (csmaNodes.Get (0), &quot;rt&quot;);<p>
+clickinternet.Install (csmaNodes.Get (0));<p>
+[/sourcecode]<p>
+<p>
+Now that all the nodes have an internet stack, we assign IPv4 addresses to all the network interfaces.<p>
+[sourcecode language="cpp"]<p>
+Ipv4AddressHelper ipv4;<p>
+ipv4.SetBase (&quot;172.16.1.0&quot;, &quot;255.255.255.0&quot;);<p>
+ipv4.Assign (csmaDevices);<p>
+[/sourcecode]<p>
+<p>
+And then, we setup the traffic generators for talking between node A and node B.<p>
+[sourcecode language="cpp"]<p>
+Address LocalAddress (InetSocketAddress (Ipv4Address::GetAny (), 50000));<p>
+PacketSinkHelper packetSinkHelper (&quot;ns3::TcpSocketFactory&quot;, LocalAddress);<p>
+ApplicationContainer recvapp = packetSinkHelper.Install (csmaNodes.Get (1));<p>
+recvapp.Start (Seconds (5.0));<p>
+recvapp.Stop (Seconds (10.0));<p>
+OnOffHelper onOffHelper (&quot;ns3::TcpSocketFactory&quot;, Address ());<p>
+onOffHelper.SetAttribute (&quot;OnTime&quot;, RandomVariableValue (ConstantVariable (1)));<p>
+onOffHelper.SetAttribute (&quot;OffTime&quot;, RandomVariableValue (ConstantVariable (0)));<p>
+<p>
+ApplicationContainer appcont;<p>
+addressValue remoteAddress (InetSocketAddress (Ipv4Address (&quot;172.16.1.2&quot;), 50000));<p>
+onOffHelper.SetAttribute (&quot;Remote&quot;, remoteAddress);<p>
+appcont.Add (onOffHelper.Install (csmaNodes.Get (0)));<p>
+appcont.Start (Seconds (5.0));<p>
+appcont.Stop (Seconds (10.0));<p>
+[/sourcecode]<p>
+<p>
+Lastly, we enable PCAP tracing on all the CSMA NetDevices in the scenario.<p>
+[sourcecode language="cpp"]<p>
+csma.EnablePcap (&quot;nsclick-simple-lan&quot;, csmaDevices, false);<p>
+[/sourcecode]<p>
+<p>
+And to conclude the script, we specify the running time for the simulation to be 20 seconds, and call Simulator::Run(). Don't forget to call Simulator::Destroy() lest tools like Valgrind start screaming about memory leaks.<p>
+[sourcecode language="cpp"]<p>
+Simulator::Stop (Seconds (20.0));<p>
+Simulator::Run ();<p>
+Simulator::Destroy ();<p>
+return 0;<p>
+[/sourcecode]<p>
+&nbsp;<p>
+<p>
+To see the results of running our simulation, execute the below in your terminal from the ns-3-dev top level directory once you've built Click as described in the <a href="http://lalith.in/2011/05/howto-getting-started-with-ns-3-click-part-i/">previous article</a>.<p>
+<p>
+<code><p>
+$: ./waf --run nsclick-simple-lan<p>
+</code><p>
+<p>
+Have a look at the resulting pcap traces (nsclick-simple-lan-0-[0,1].pcap) using wireshark or tcpdump to see what happened through the simulation.<p>
+<p>
+Hope you found this little walkthrough helpful. If you find any bugs with ns-3-click, please don't hesitate to file a bug report on our <a href="http://www.nsnam.org/bugzilla/">bugzilla</a>. :)

@@ -1,0 +1,37 @@
+---
+layout: post
+title: Network Operating System?
+categories:
+- Distributed Systems
+- Programming
+tags:
+- floodlight
+- networks
+- openflow
+- sdn
+status: publish
+type: post
+published: true
+meta:
+  tagazine-media: a:7:{s:7:"primary";s:61:"http://lalithsuresh.files.wordpress.com/2012/03/openflow2.png";s:6:"images";a:1:{s:61:"http://lalithsuresh.files.wordpress.com/2012/03/openflow2.png";a:6:{s:8:"file_url";s:61:"http://lalithsuresh.files.wordpress.com/2012/03/openflow2.png";s:5:"width";s:3:"745";s:6:"height";s:4:"1053";s:4:"type";s:5:"image";s:4:"area";s:6:"784485";s:9:"file_path";s:0:"";}}s:6:"videos";a:0:{}s:11:"image_count";s:1:"1";s:6:"author";s:7:"4406157";s:7:"blog_id";s:7:"4169371";s:9:"mod_stamp";s:19:"2012-03-16
+    11:33:46";}
+  publicize_results: a:1:{s:7:"twitter";a:1:{i:18867264;a:2:{s:7:"user_id";s:12:"lalithsuresh";s:7:"post_id";s:18:"180617231015743488";}}}
+  _wpas_done_twitter: '1'
+  _wpas_skip_fb: '1'
+  _elasticsearch_indexed_on: '2012-03-16 11:31:07'
+---
+I've just begun dealing with Software Defined Networks (SDN) for my Master's thesis, and I'm experimenting on top of <a href="http://floodlight.openflowhub.org/">Floodlight</a>, an open source OpenFlow controller from <a href="http://www.bigswitch.com/">Big Switch Networks</a>. In OpenFlow, a logically centralised entity known as the controller can control the forwarding tables of a bunch of switches which speak OpenFlow. OpenFlow applications then talk to the controller using some controller-specific API to 'program' the network (manipulate forwarding tables on the switches). The high level architecture looks something like this:<p>
+<p>
+<a href="http://lalithsuresh.files.wordpress.com/2012/03/openflow2.png"><img class="aligncenter size-medium wp-image-1529" title="openflow" src="http://lalithsuresh.files.wordpress.com/2012/03/openflow2.png?w=212" alt="" width="212" height="300" /></a><p>
+<p>
+Just like an operating system abstracts away the complexities of the underlying hardware for a user-space application, the controller abstracts away the complexities of the network for OpenFlow applications. For this reason, the controller is often referred to as a "network operating system". Applications have some API to talk to the network-OS, and it translates those APIs into OpenFlow commands that control the switches.<p>
+<p>
+For my thesis, the plan for my architecture was to have two applications that provide different services to the network, that are expected to run simultaneously. Both of them collect information from the OpenFlow switches and some other framework specific agents situated at the edges of the network to make some optimisation type decisions. But as soon as I implemented one of the applications, it was clear that I had no straightforward way of ensuring that both my applications wouldn't make decisions that counteract each other. Although I really don't like the idea of doing this, the easiest way to solve this is to wrap both applications into one. And from the looks of it, this is a problem that hasn't been solved yet.<p>
+<p>
+Controllers like NOX and Onix make the assumption that only one OpenFlow application is running on a given network at any point of time. This is a reasonable assumption from a systems perspective. But what's gotten me confused is how OpenFlow applications fit into the "SDN for enterprises" picture. I was under the impression that a network operator using a particular controller could choose between different 3rd party OpenFlow applications to handle different complexities with the network: a load balancing application from vendor A for the edge, a routing daemon application from vendor B, and so forth. While these are relatively orthogonal applications, it looks like it's possible for two OpenFlow applications to make decisions and choices that adversely affect each other (leading to oscillations in switch state). Floodlight allows you to run multiple applications at the same time, but leaves it to the developer (or user?) to ensure that applications can safely co-exist with each other.<p>
+<p>
+So again, if my observation isn't mistaken, how do OpenFlow applications fit cleanly into the SDN ecosystem?  How can I manage my network using building blocks of applications from different vendors? Will I need to rely on <em>OneBigApplianceFromBigBadVendor</em> per network? Does this necessitate something analogous to per-process resource allocation as in traditional operating systems? I can see that FlowVisor style slicing is one way to go about it, but will that suffice?<p>
+<p>
+So what *should* the network operating system do here? Let the applications run wild and fight it out? Or provide some mechanism to enforce policies between applications?<p>
+<p>
+If I am indeed mistaken in my assumption, please do let me know what I'm missing here! :)

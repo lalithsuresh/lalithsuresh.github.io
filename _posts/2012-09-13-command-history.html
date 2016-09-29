@@ -1,0 +1,63 @@
+---
+layout: post
+title: Command history
+categories:
+- Linux
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_twitter: '1'
+  _wpas_skip_facebook: '1'
+  _elasticsearch_indexed_on: '2012-09-13 08:19:55'
+---
+Here's the command history on my laptop's Ubuntu 10.04 installation (it's been running for a year and a half now):<p>
+<code><p>
+$: history|awk '{a[$2]++ } END{for(i in a){print a[i] " " i}}'|sort -rn|head -n 20<p>
+<p>
+1030 cd<p>
+833 v<p>
+747 git<p>
+653 sudo<p>
+564 gc<p>
+537 vim<p>
+531 hdfs<p>
+357 ls<p>
+343 grep<p>
+265 rm<p>
+204 tshark<p>
+186 cp<p>
+182 ack-grep<p>
+143 cat<p>
+126 ping<p>
+114 hg<p>
+102 mv<p>
+95 find<p>
+94 ssh<p>
+93 ./waf<p>
+</code><p>
+"v" is my alias for vim, and "gc" is my alias for "git commit". So here's the somewhat corrected list (I say somewhat because I have even more aliases which I use for git, which I'm not taking into account).<p>
+<code><p>
+1370 vim<p>
+1311 git<p>
+1030 cd<p>
+653 sudo<p>
+531 hdfs<p>
+357 ls<p>
+343 grep<p>
+265 rm<p>
+204 tshark<p>
+186 cp<p>
+182 ack-grep<p>
+143 cat<p>
+126 ping<p>
+114 hg<p>
+102 mv<p>
+95 find<p>
+94 ssh<p>
+93 ./waf<p>
+</code><p>
+I find it surprising that over the 4 months I hacked on <a href="http://lalith.in/2011/12/15/towards-a-scalable-and-highly-available-namenode/">KTHFS</a>, the "hdfs" command made it to my top 10 list! Mercurial (hg) and waf are in there thanks to my ns-3 duties.<p>
+<p>
+Oh well, now back to work.

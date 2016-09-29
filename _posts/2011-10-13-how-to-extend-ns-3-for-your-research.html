@@ -1,0 +1,45 @@
+---
+layout: post
+title: How to extend ns-3 for your research
+categories:
+- FOSS
+- NS-3
+tags:
+- extend
+- module
+- ns3
+status: publish
+type: post
+published: true
+meta:
+  _wpas_done_twitter: '1'
+  _wpas_done_fb: '1'
+  _elasticsearch_indexed_on: '2011-10-12 22:34:25'
+---
+Having been busy with coursework lately, I hadn't gone through our users' list in a while. Wading through a week's worth of posts today, it seems to me like a good deal of questions are from users who are trying to get started with extending ns-3. This is indeed quite expected; as a research tool, ns-3 is most useful only when built upon. These extensions usually take one of the following forms:<p>
+<ol><p>
+	<li>a tweak to an existing protocol to make it simulate some specific scenario (try searching for "attacks" on our <a href="http://groups.google.com/group/ns-3-users"> users list</a>),</li><p>
+	<li>adding some functionality X to an existing module, (for instance, RRC messages support for LTE)</li><p>
+	<li>or writing an entirely new module from scratch.</li><p>
+</ol><p>
+Before you do *anything* with ns-3, go through the <a href="http://www.nsnam.org/docs/tutorial/singlehtml/index.html">tutorials</a> first.<p>
+<p>
+Now, for cases 1 and 2 mentioned above, the *only* way to proceed is:<p>
+<ol><p>
+	<li>Go through the literature about what you're trying to implement -- "What do I want to achieve?"</li><p>
+	<li>Understand the scope and limitations of the ns-3 module you're trying to deal with (go through the <a href="http://www.nsnam.org/docs/models/singlehtml/index.html">model documentation</a> at least) -- "Does ns-3 have the necessary base for me to build on top of?"</li><p>
+	<li>If the answer to the above is "yes", then start reading through the respective module's code to figure out where you'll need to insert your modifications. -- "Where does my extension/tweak fit within the existing source code?"</li><p>
+	<li>Implement.</li><p>
+	<li>Profit.</li><p>
+</ol><p>
+Case 3, on the other hand, requires a lot more work:<p>
+<ol><p>
+	<li>Go through the literature about what you're trying to implement -- "What do I want to achieve?"</li><p>
+	<li>Understand how your module would fit within ns-3. This is usually the tricky part. To this end, it's very important to understand how packets flow through a node within ns-3. This <a href="http://www.nsnam.org/docs/release/3.18/models/html/internet-stack.html#example-path-of-a-packet">figure</a> from our manual is usually the only thing you'll need to know to get started.</li><p>
+	<li>At this point, I'll make things easier for myself and assume that you're going to implement something that fits into the above mentioned architecture (rather than trying to modify the architecture itself). The first step is as simple as deriving from the right class. This gives you the virtual methods you need to implement in order to maintain a particular component's semantics. So if you're trying to write a new application, derive from ns3::Application. If it's a new routing protocol, derive from ns3::Ipv4RoutingProtocol or ns3::Ipv6RoutingProtocol. If it's a new NetDevice, derive from ns3::NetDevice. The easiest thing to do is to find another example of the component type you're trying to develop and reflect its basic structure.</li><p>
+	<li>Now to get started writing your new module, have a look at Gustavo Carnerio's <a href="http://code.nsnam.org/ns-3-dev/file/81ca9a7671bb/src/create-module.py">create-module.py</a> script (inside src/)  which generates a skeleton for your new module. This includes the necessary sub-folders for the module, and also the all important wscript file. For most use cases, it would suffice to peek into some other module's wscript file to get an idea of what to do. If you're going to need some fancy external libraries, you'll need to go through the waf documentation a bit. Look into src/click/wscript to get an idea of how to do external linking.</li><p>
+	<li>Now once you start developing your new simulation model, you'll need to attach this object to a node to get it to do something. This mode of attachment varies from component to component. Some objects are 'aggregated' to the node, some are added to a list of similar components (like applications being added to a node's 'ApplicationList') and so forth. The best places to look in order to understand this are the helpers for each module. So for instance, if you want to figure out how to add your routing protocol to a node, look at src/olsr/helper/ to get an idea.</li><p>
+	<li>Lastly, you'll need to write simulation scripts to see your module in action. Copying off and editing existing example scripts from the examples/ folder or the src/*/examples/ folders should suffice for most cases.</li><p>
+	<li>If you're going to propose this new module for merge, look at our <a href="http://www.nsnam.org/developers/contributing-code/">contributing code page</a>. Keep in mind that we won't merge code which doesn't have any documentation, or tests (validation or unit tests, as is applicable).</li><p>
+	<li>Merge. :)</li><p>
+</ol>
