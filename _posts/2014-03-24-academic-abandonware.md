@@ -45,3 +45,4 @@ I'll end this post with a comic I once drew.
 
 
 ![My helpful screenshot](/img/codequality.png)
+
