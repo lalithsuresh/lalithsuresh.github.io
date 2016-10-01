@@ -108,7 +108,10 @@ li {
     }
 }
 
-
+p {
+    margin-top: 0.7em;
+    margin-bottom: 0.7em;
+}
 
 /**
  * Headings
@@ -148,20 +151,36 @@ article a {
 
 /**
  * Blockquotes
- */
+ *
 blockquote {
     color: $text-color;
     border-left: 10px solid $grey-color-light;
     padding-left: $horizontal-spacing-unit / 2;
-    font-size: 18px;
     font-style: italic;
 
     > :last-child {
         margin-bottom: 0;
     }
 }
-
-
+*/
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
+}
 
 /**
  * Code formatting
@@ -187,7 +206,6 @@ pre {
         padding-left: 0;
     }
 }
-
 
 
 /**
