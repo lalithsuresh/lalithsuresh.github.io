@@ -41,11 +41,9 @@ each other. Little did they know, that this one line problem statement I offered
 took several PhD theses to even construct partially working solutions.
 
 I've tried different variations of this strategy in the past, and after
-all these years I've concluded this:
-
-**Leaving students with questions during a lecture puts them in the shoes of
+all these years I've concluded this: Leaving students with questions during a lecture puts them in the shoes of
 those before them who tried to find the answers. Leaving students with the answers
-makes them mere consumers of knowledge.**
+makes them mere consumers of knowledge.
 
 When we tell students about a solution alongside the problem itself, we've
 already put horse blinders on their chain of thought. We're directing their
