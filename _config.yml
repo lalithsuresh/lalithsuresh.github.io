@@ -16,5 +16,4 @@ highlighter: rouge
 # Pagination
 gems: [jekyll-paginate]
 paginate: 10
-paginate_path: "page:num/"
-
+paginate_path: "blog/page:num/"
