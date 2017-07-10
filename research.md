@@ -22,6 +22,11 @@ Conference and Workshop Papers
 </p>
 
 <p class="gap">
+<a href="http://dl.acm.org/citation.cfm?id=3064209&dl=ACM&coll=DL&CFID=784015424&CFTOKEN=62413457">Rein: Taming Tail Latency in Key-Value Stores via Multiget Scheduling</a><br>
+Waleed Reda, Marco Canini, Lalith Suresh, Dejan Kostic, Sean Braithwaite.<br>
+EuroSys 2017.</p>
+
+<p class="gap">
 <a href="http://research.microsoft.com/en-us/um/people/pcosta/papers/fuerst16kraken.pdf">Online and Elastic Resource Reservations for Multi-tenant Datacenters</a><br>
 Carlo Fuerst, Stefan Schmid, Lalith Suresh, and Paolo Costa.<br>
 IEEE INFOCOM 2016.</p>
