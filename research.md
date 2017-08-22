@@ -22,6 +22,16 @@ Conference and Workshop Papers
 </p>
 
 <p class="gap">
+<a href="https://acmsocc.github.io/2017/schedule.html">Remote memory in the age of fast networks</a><br>
+Marcos K. Aguilera, Nadav Amit, Irina Calciu, Xavier Deguillard, Jayneel Gandhi, Pratap Subrahmanyam, Lalith Suresh, Kiran Tati, Rajesh Venkatasubramanian, Michael Wei.<br>
+SoCC 2017.</p>
+
+<p class="gap">
+<a href="https://acmsocc.github.io/2017/schedule.html">Distributed Resource Management across Process Boundaries</a><br>
+Lalith Suresh, Peter Bodik, Ishai Menache, Marco Canini, Florin Ciucu.<br>
+SoCC 2017.</p>
+
+<p class="gap">
 <a href="http://dl.acm.org/citation.cfm?id=3064209&dl=ACM&coll=DL&CFID=784015424&CFTOKEN=62413457">Rein: Taming Tail Latency in Key-Value Stores via Multiget Scheduling</a><br>
 Waleed Reda, Marco Canini, Lalith Suresh, Dejan Kostic, Sean Braithwaite.<br>
 EuroSys 2017.</p>
