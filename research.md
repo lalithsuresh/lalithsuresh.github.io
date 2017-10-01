@@ -22,12 +22,12 @@ Conference and Workshop Papers
 </p>
 
 <p class="gap">
-<a href="https://acmsocc.github.io/2017/schedule.html">Remote memory in the age of fast networks</a><br>
+<a href="https://dl.acm.org/authorize.cfm?key=N46857">Remote memory in the age of fast networks</a><br>
 Marcos K. Aguilera, Nadav Amit, Irina Calciu, Xavier Deguillard, Jayneel Gandhi, Pratap Subrahmanyam, Lalith Suresh, Kiran Tati, Rajesh Venkatasubramanian, Michael Wei.<br>
 SoCC 2017.</p>
 
 <p class="gap">
-<a href="https://acmsocc.github.io/2017/schedule.html">Distributed Resource Management across Process Boundaries</a><br>
+<a href="https://dl.acm.org/authorize.cfm?key=N46895">Distributed Resource Management across Process Boundaries</a><br>
 Lalith Suresh, Peter Bodik, Ishai Menache, Marco Canini, Florin Ciucu.<br>
 SoCC 2017.</p>
 
