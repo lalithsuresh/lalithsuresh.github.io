@@ -16,15 +16,38 @@ title: publications
   }
 </style>
 
+
 <p class="gaphead">
-Conference and Workshop Papers
+Preprint
+<hr>
+</p>
+<p class="gap">
+<a href="https://arxiv.org/abs/1803.03620">Stable and Consistent Membership at Scale with Rapid</a><br>
+Lalith Suresh, Dahlia Malkhi, Parikshit Gopalan, Ivan Porto Carreiro, Zeeshan Lokhandwala.<br>
+Arxiv Preprint, arXiv:1803.03620, March, 2018.</p>
+
+<p class="gap">
+<a href="https://arxiv.org/abs/1802.09815">Elmo: Source-Routed Multicast for Cloud Services</a><br>
+Muhammad Shahbaz, Lalith Suresh, Nick Feamster, Jen Rexford, Ori Rottenstreich, Mukesh Hira.<br>
+Arxiv Preprint, arXiv:1802.09815, February, 2018.</p>
+
+<br>
+
+<p class="gaphead">
+Journals, Conference and Workshop Papers
 <hr>
 </p>
 
 <p class="gap">
+<a href="http://ieeexplore.ieee.org/abstract/document/8234676/">Kraken: Online and Elastic Resource Reservations for Cloud Datacenters</a><br>
+Carlo Fuerst, Stefan Schmid, Lalith Suresh, Paolo Costa.<br>
+IEEE/ACM Transactions on Networking, 2017.</p>
+
+
+<p class="gap">
 <a href="https://dl.acm.org/authorize.cfm?key=N46857">Remote memory in the age of fast networks</a><br>
 Marcos K. Aguilera, Nadav Amit, Irina Calciu, Xavier Deguillard, Jayneel Gandhi, Pratap Subrahmanyam, Lalith Suresh, Kiran Tati, Rajesh Venkatasubramanian, Michael Wei.<br>
-SoCC 2017.</p>
+SoCC 2017. (Vision paper)</p>
 
 <p class="gap">
 <a href="https://dl.acm.org/authorize.cfm?key=N46895">Distributed Resource Management across Process Boundaries</a><br>
