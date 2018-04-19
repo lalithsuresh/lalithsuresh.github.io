@@ -21,10 +21,6 @@ title: publications
 Preprint
 <hr>
 </p>
-<p class="gap">
-<a href="https://arxiv.org/abs/1803.03620">Stable and Consistent Membership at Scale with Rapid</a><br>
-Lalith Suresh, Dahlia Malkhi, Parikshit Gopalan, Ivan Porto Carreiro, Zeeshan Lokhandwala.<br>
-Arxiv Preprint, arXiv:1803.03620, March, 2018.</p>
 
 <p class="gap">
 <a href="https://arxiv.org/abs/1802.09815">Elmo: Source-Routed Multicast for Cloud Services</a><br>
@@ -34,9 +30,19 @@ Arxiv Preprint, arXiv:1802.09815, February, 2018.</p>
 <br>
 
 <p class="gaphead">
-Journals, Conference and Workshop Papers
+Publications
 <hr>
 </p>
+
+<p class="gap">
+<a href="https://arxiv.org/abs/1803.03620">Stable and Consistent Membership at Scale with Rapid</a><br>
+Lalith Suresh, Dahlia Malkhi, Parikshit Gopalan, Ivan Porto Carreiro, Zeeshan Lokhandwala.<br>
+USENIX ATC, 2018. (To Appear)</p>
+
+<p class="gap">
+<a href="http://lalith.in/research.html">Remote regions: a simple abstraction for remote memory</a><br>
+Marcos K. Aguilera, Nadav Amit, Irina Calciu, Xavier Deguillard, Jayneel Gandhi, Stanko Novakovic, Arun Ramanathan, Pratap Subrahmanyam, Lalith Suresh, Kiran Tati, Rajesh Venkatasubramanian, Michael Wei.<br>
+USENIX ATC, 2018. (To Appear)</p>
 
 <p class="gap">
 <a href="http://ieeexplore.ieee.org/abstract/document/8234676/">Kraken: Online and Elastic Resource Reservations for Cloud Datacenters</a><br>
