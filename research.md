@@ -18,7 +18,7 @@ title: publications
 
 
 <p class="gaphead">
-Preprint
+Preprints
 <hr>
 </p>
 
@@ -73,7 +73,8 @@ IEEE INFOCOM 2016.</p>
 <p class="gap"><a href="https://www.usenix.org/system/files/conference/nsdi15/nsdi15-paper-suresh.pdf">
 C3: Cutting Tail Latency in Cloud Data Stores via Adaptive Replica Selection</a><br>
 Lalith Suresh, Marco Canini, Stefan Schmid, Anja Feldmann<br>
-USENIX NSDI 2015.</p>
+USENIX NSDI 2015. <a href="https://www.elastic.co/blog/improving-response-latency-in-elasticsearch-with-adaptive-replica-selection">[ElasticSearch ARS]</a>
+<a href="https://labs.spotify.com/2015/12/09/els-part-2/">[Spotify ELS]</a></p>
 
 <p class="gap"><a href="https://www.usenix.org/system/files/conference/atc14/atc14-paper-schulz_zander.pdf">
 Programmatic Orchestration of WiFi Networks</a><br>
