@@ -3,6 +3,7 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
 
+title: Comfortably Geek
 permalink: /:year/:month/:day/:title/
 paginate_path: /posts/:num/
 excerpt_separator: "!!!!---"
