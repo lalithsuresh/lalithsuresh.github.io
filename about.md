@@ -4,9 +4,11 @@ title: about
 permalink: /about/
 ---
 
-<img class="col one right ImageBorder" src="/img/prof_pic.jpg">
+<center>
+<img class="col one right ImageBorder" style='padding:2px;border:1px solid #000000' src="/img/prof_pic.jpg" width="300px">
+</center>
 
-<br/>
+<br>
 
 I’m Lalith Suresh, a computer scientist by trade. I research networked and distributed systems with the awesome folks at <a href="https://research.vmware.com/">VMware Research</a> in Palo Alto.
 
@@ -18,20 +20,3 @@ KTH, Stockholm and IST, Lisbon</a> in June 2012.
 
 I can be reached preferably via email at: suresh dot lalith at gmail.
 
-
-<!--
-<br/>
-<hr/>
-<br/>
-<span class="contacticon center">
-	<a href="mailto:you@example.com"><i class="fa fa-envelope-square"></i></a>
-	<a href="https://github.com" target="_blank"><i class="fa fa-github-square"></i></a>
-	<a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin-square"></i></a>
-	<a href="http://tumblr.com" target="_blank"><i class="fa fa-tumblr-square"></i></a>
-	<a href="https://twitter.com" target="_blank"><i class="fa fa-twitter-square"></i></a>
-</span>
-
-<div class="col three caption">
-	You can even add a little note about which of these is the best way to reach you.
-</div>
--->

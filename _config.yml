@@ -1,19 +1,11 @@
-# Site settings
-title: Comfortably Geek
-email: suresh.lalith@gmail.com
-#description: > # this means to ignore newlines until "baseurl:"
-#  A simple, whitespace, helvetica based portfolio theme.
-baseurl:  # the subpath of your site, e.g. /blog/
-url:  # the base hostname & protocol for your site
-#twitter_username: twitter_username
-github_username:  lalithsuresh
+theme: jekyll-whiteglass
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
 
-# Build settings
-markdown: kramdown
-
-highlighter: rouge
-
-# Pagination
-gems: [jekyll-paginate]
+permalink: /:year/:month/:day/:title/
+paginate_path: /posts/:num/
+excerpt_separator: "!!!!---"
 paginate: 5
-paginate_path: "blog/page:num/"
+exclude: [node_modules]
+
