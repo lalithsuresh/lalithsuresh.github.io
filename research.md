@@ -47,12 +47,12 @@ Most of my projects are open-source and available on my [Github page](http://git
 A full list of my publications can be seen on my [Google Scholar page](https://scholar.google.com/citations?user=GRZxJIsAAAAJ&hl=en)
 
 
-* [Stable and Consistent Membership at Scale with Rapid](https://arxiv.org/abs/1803.03620)  
+* [Stable and Consistent Membership at Scale with Rapid](https://www.usenix.org/conference/atc18/presentation/suresh)  
   Lalith Suresh, Dahlia Malkhi, Parikshit Gopalan, Ivan Porto Carreiro, Zeeshan Lokhandwala.  
   USENIX ATC, 2018.
 
 
-* [Remote regions: a simple abstraction for remote memory](http://lalith.in/research.html)  
+* [Remote regions: a simple abstraction for remote memory](https://www.usenix.org/conference/atc18/presentation/aguilera)  
   Marcos K. Aguilera, Nadav Amit, Irina Calciu, Xavier Deguillard, Jayneel Gandhi, Stanko Novakovic, Arun Ramanathan, Pratap Subrahmanyam, Lalith Suresh, Kiran Tati, Rajesh Venkatasubramanian, Michael Wei.  
   USENIX ATC, 2018.
 
