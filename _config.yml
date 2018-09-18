@@ -2,6 +2,7 @@ remote_theme: yous/whiteglass
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-remote-theme
 
 title: Comfortably Geek
 permalink: /:year/:month/:day/:title/
