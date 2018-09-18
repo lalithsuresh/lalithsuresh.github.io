@@ -14,7 +14,7 @@ Most of my projects are open-source and available on my [Github page](http://git
   the membership view even during complex failure scenarios (e.g., asymmetric
   reachability problems and high packet loss), and (2) presents all participating
   processes a strongly consistent view of the membership.<br>
-  [[ATC '18 paper](https://www.usenix.org/conference/atc18/presentation/suresh)] [[Preprint](https://arxiv.org/pdf/1803.03620.pdf)] [[code](http://github.com/lalithsuresh/rapid/)]
+  [[ATC '18 paper](https://www.usenix.org/conference/atc18/presentation/suresh)] [[Preprint](https://arxiv.org/pdf/1803.03620.pdf)] [[code](http://github.com/lalithsuresh/rapid/)] [[blog](http://lalith.in/2018/09/13/Rapid/)]
 
 * **_Wisp: end-to-end rate limiting and request scheduling for micro-services_**  
   Wisp brings decentralized, end-to-end resource management to multi-tenant
