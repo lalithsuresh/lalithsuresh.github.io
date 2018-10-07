@@ -4,6 +4,23 @@ title: Research
 permalink: /research/
 ---
 
+My broad area of research is distributed systems and networking. At VMware
+Research, I'm leading efforts to simplify cluster management for large-scale
+distributed systems.
+
+I'm always on the lookout for motivated PhD students to work with. Reach
+out to me by email (suresh dot lalith at gmail) if you're interested in 
+an internship.
+
+
+### Interns
+
+I've worked with some fantastic interns at VMware Research:
+
+* João Loff (IST - Lisbon)
+* Muhammad Shahbaz (Princeton University)
+* Michael Tong (University of Chicago)
+
 
 ### Selected projects
 
