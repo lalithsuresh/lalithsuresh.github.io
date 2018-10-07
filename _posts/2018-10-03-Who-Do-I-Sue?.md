@@ -1,6 +1,6 @@
 
 *"Thus I will claim that the future of technology will be less determined by
-what technology can do than social, legal and other restraints on what we can
+what technology can do, than social, legal and other restraints on what we can
 do.  Thus, if you stop to think about computer-controlled highway traffic -- it
 sounds good to you but ask yourself: who do I sue in an accident?"* 
 
