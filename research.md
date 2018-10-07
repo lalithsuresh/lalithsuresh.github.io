@@ -12,6 +12,7 @@ I'm always on the lookout for motivated PhD students to work with. Reach
 out to me by email (suresh dot lalith at gmail) if you're interested in 
 an internship.
 
+<br>
 
 ### Interns
 
@@ -21,6 +22,7 @@ I've worked with some fantastic interns at VMware Research:
 * Muhammad Shahbaz (Princeton University)
 * Michael Tong (University of Chicago)
 
+<br>
 
 ### Selected projects
 
