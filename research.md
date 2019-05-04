@@ -65,6 +65,20 @@ Most of my projects are open-source and available on my [Github page](http://git
 
 A full list of my publications can be seen on my [Google Scholar page](https://scholar.google.com/citations?user=GRZxJIsAAAAJ&hl=en)
 
+* [Elmo: Source Routed Multicast for Public Clouds]()  
+  Muhammad Shahbaz, Lalith Suresh, Nick Feamster, Jen Rexford, Ori Rottenstreich, Mukesh Hira.  
+  ACM SIGCOMM, 2019.
+
+
+* [Synthesizing Cluster Management Code for Distributed Systems]()  
+  Lalith Suresh, João Loff, Nina Narodytska, Leonid Ryzhyk, Mooly Sagiv, and Brian Oki.  
+  HotOS, 2019.
+
+
+* [Stable and Consistent Membership at Scale with Rapid](https://www.usenix.org/conference/atc18/presentation/suresh)  
+  Lalith Suresh, Dahlia Malkhi, Parikshit Gopalan, Ivan Porto Carreiro, Zeeshan Lokhandwala.  
+  USENIX ATC, 2018.
+
 
 * [Stable and Consistent Membership at Scale with Rapid](https://www.usenix.org/conference/atc18/presentation/suresh)  
   Lalith Suresh, Dahlia Malkhi, Parikshit Gopalan, Ivan Porto Carreiro, Zeeshan Lokhandwala.  
