@@ -80,11 +80,6 @@ A full list of my publications can be seen on my [Google Scholar page](https://s
   USENIX ATC, 2018.
 
 
-* [Stable and Consistent Membership at Scale with Rapid](https://www.usenix.org/conference/atc18/presentation/suresh)  
-  Lalith Suresh, Dahlia Malkhi, Parikshit Gopalan, Ivan Porto Carreiro, Zeeshan Lokhandwala.  
-  USENIX ATC, 2018.
-
-
 * [Remote regions: a simple abstraction for remote memory](https://www.usenix.org/conference/atc18/presentation/aguilera)  
   Marcos K. Aguilera, Nadav Amit, Irina Calciu, Xavier Deguillard, Jayneel Gandhi, Stanko Novakovic, Arun Ramanathan, Pratap Subrahmanyam, Lalith Suresh, Kiran Tati, Rajesh Venkatasubramanian, Michael Wei.  
   USENIX ATC, 2018.
