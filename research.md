@@ -65,12 +65,17 @@ Most of my projects are open-source and available on my [Github page](http://git
 
 A full list of my publications can be seen on my [Google Scholar page](https://scholar.google.com/citations?user=GRZxJIsAAAAJ&hl=en)
 
+* [Hillview: A trillion-cell spreadsheet for big data]()  
+  Mihai Budiu, Parikshit Gopalan, Lalith Suresh, Udi Wieder, Han Kruiger, Marcos K. Aguilera.
+  VLDB, 2019.
+
+
 * [Elmo: Source Routed Multicast for Public Clouds]()  
   Muhammad Shahbaz, Lalith Suresh, Nick Feamster, Jen Rexford, Ori Rottenstreich, Mukesh Hira.  
   ACM SIGCOMM, 2019.
 
 
-* [Synthesizing Cluster Management Code for Distributed Systems]()  
+* [Synthesizing Cluster Management Code for Distributed Systems](https://dl.acm.org/citation.cfm?id=3321444)  
   Lalith Suresh, João Loff, Nina Narodytska, Leonid Ryzhyk, Mooly Sagiv, and Brian Oki.  
   HotOS, 2019.
 
