@@ -66,7 +66,7 @@ Most of my projects are open-source and available on my [Github page](http://git
 A full list of my publications can be seen on my [Google Scholar page](https://scholar.google.com/citations?user=GRZxJIsAAAAJ&hl=en)
 
 * [Hillview: A trillion-cell spreadsheet for big data]()  
-  Mihai Budiu, Parikshit Gopalan, Lalith Suresh, Udi Wieder, Han Kruiger, Marcos K. Aguilera.
+  Mihai Budiu, Parikshit Gopalan, Lalith Suresh, Udi Wieder, Han Kruiger, Marcos K. Aguilera.  
   VLDB, 2019.
 
 
