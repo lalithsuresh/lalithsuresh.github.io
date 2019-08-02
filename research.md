@@ -18,6 +18,7 @@ an internship.
 
 I've worked with some fantastic interns at VMware Research:
 
+* Faria Kalim (UUIC)
 * João Loff (IST - Lisbon)
 * Muhammad Shahbaz (Princeton University)
 * Michael Tong (University of Chicago)
