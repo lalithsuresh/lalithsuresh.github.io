@@ -66,12 +66,12 @@ Most of my projects are open-source and available on my [Github page](http://git
 
 A full list of my publications can be seen on my [Google Scholar page](https://scholar.google.com/citations?user=GRZxJIsAAAAJ&hl=en)
 
-* [Hillview: A trillion-cell spreadsheet for big data]()  
+* [Hillview: A trillion-cell spreadsheet for big data](https://dl.acm.org/citation.cfm?id=3360355)  
   Mihai Budiu, Parikshit Gopalan, Lalith Suresh, Udi Wieder, Han Kruiger, Marcos K. Aguilera.  
   VLDB, 2019.
 
 
-* [Elmo: Source Routed Multicast for Public Clouds]()  
+* [Elmo: Source Routed Multicast for Public Clouds](https://dl.acm.org/citation.cfm?id=3342066)  
   Muhammad Shahbaz, Lalith Suresh, Nick Feamster, Jen Rexford, Ori Rottenstreich, Mukesh Hira.  
   ACM SIGCOMM, 2019.
 
