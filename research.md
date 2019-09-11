@@ -29,6 +29,13 @@ I've worked with some fantastic interns at VMware Research:
 
 Most of my projects are open-source and available on my [Github page](http://github.com/lalithsuresh).
 
+* **_DCM: Declarative Cluster Management_**
+  DCM allows programmers to drive cluster management tasks declaratively, using
+  SQL queries over cluster state stored in a relational database. Behind the scenes,
+  the DCM compiler and runtime translates these queries into an optimization model
+  that it solves using an off-the-shelf solver. We've built a Kubernetes scheduler using DCM. 
+  [[Preprint](https://arxiv.org/pdf/1909.03130.pdf)] [[HotOS '19 paper](https://dl.acm.org/citation.cfm?id=3321444)] [[code](https://github.com/vmware/declarative-cluster-management/)]
+
 * **_Rapid: consistent and stable membership at scale_**  
   Rapid is a scalable, distributed membership service that (1) avoids flip-flops in
   the membership view even during complex failure scenarios (e.g., asymmetric
