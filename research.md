@@ -96,7 +96,7 @@ A full list of my publications can be seen on my [Google Scholar page](https://s
 
 * [Kraken: Online and Elastic Resource Reservations for Cloud Datacenters](http://ieeexplore.ieee.org/abstract/document/8234676/)  
   Carlo Fuerst, Stefan Schmid, Lalith Suresh, Paolo Costa.  
-  IEEE/ACM Transactions on Networking, 2017.
+  IEEE/ACM Transactions on Networking, 2018.
 
 * [Remote memory in the age of fast networks](https://dl.acm.org/authorize.cfm?key=N46857)  
   Marcos K. Aguilera, Nadav Amit, Irina Calciu, Xavier Deguillard, Jayneel Gandhi, Pratap Subrahmanyam, Lalith Suresh, Kiran Tati, Rajesh Venkatasubramanian, Michael Wei.  
@@ -112,7 +112,7 @@ A full list of my publications can be seen on my [Google Scholar page](https://s
 
 * [Kraken: Online and Elastic Resource Reservations for Cloud Datacenters](https://ieeexplore.ieee.org/document/7524466/)  
   Carlo Fuerst, Stefan Schmid, Lalith Suresh, Paolo Costa.  
-  IEEE/ACM Transactions on Networking, 2017.
+  INFOCOM, 2017.
 
 * [C3: Cutting Tail Latency in Cloud Data Stores via Adaptive Replica Selection](https://www.usenix.org/system/files/conference/nsdi15/nsdi15-paper-suresh.pdf)  
   Lalith Suresh, Marco Canini, Stefan Schmid, Anja Feldmann  
