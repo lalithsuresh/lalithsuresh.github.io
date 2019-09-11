@@ -29,11 +29,11 @@ I've worked with some fantastic interns at VMware Research:
 
 Most of my projects are open-source and available on my [Github page](http://github.com/lalithsuresh).
 
-* **_DCM: Declarative Cluster Management_**
+* **_DCM: Declarative Cluster Management_**<br>
   DCM allows programmers to drive cluster management tasks declaratively, using
   SQL queries over cluster state stored in a relational database. Behind the scenes,
   the DCM compiler and runtime translates these queries into an optimization model
-  that it solves using an off-the-shelf solver. We've built a Kubernetes scheduler using DCM. 
+  that it solves using an off-the-shelf solver. We've built a Kubernetes scheduler using DCM.<br> 
   [[Preprint](https://arxiv.org/pdf/1909.03130.pdf)] [[HotOS '19 paper](https://dl.acm.org/citation.cfm?id=3321444)] [[code](https://github.com/vmware/declarative-cluster-management/)]
 
 * **_Rapid: consistent and stable membership at scale_**  
@@ -72,6 +72,11 @@ Most of my projects are open-source and available on my [Github page](http://git
 ### Selected Publications
 
 A full list of my publications can be seen on my [Google Scholar page](https://scholar.google.com/citations?user=GRZxJIsAAAAJ&hl=en)
+
+* [Automating Cluster Management with Weave](https://arxiv.org/abs/1909.03130)  
+  Lalith Suresh, Joao Loff, Faria Kalim, Nina Narodytska, Leonid Ryzhyk, Sahan Gamage, Brian Oki, Zeeshan Lokhandwala, Mukesh Hira, Mooly Sagiv
+  VLDB, 2019.
+
 
 * [Hillview: A trillion-cell spreadsheet for big data](https://dl.acm.org/citation.cfm?id=3360355)  
   Mihai Budiu, Parikshit Gopalan, Lalith Suresh, Udi Wieder, Han Kruiger, Marcos K. Aguilera.  
