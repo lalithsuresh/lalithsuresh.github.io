@@ -75,7 +75,7 @@ A full list of my publications can be seen on my [Google Scholar page](https://s
 
 * [Automating Cluster Management with Weave](https://arxiv.org/abs/1909.03130)  
   Lalith Suresh, Joao Loff, Faria Kalim, Nina Narodytska, Leonid Ryzhyk, Sahan Gamage, Brian Oki, Zeeshan Lokhandwala, Mukesh Hira, Mooly Sagiv
-  VLDB, 2019.
+  Arxiv Preprint, 2019.
 
 
 * [Hillview: A trillion-cell spreadsheet for big data](https://dl.acm.org/citation.cfm?id=3360355)  
