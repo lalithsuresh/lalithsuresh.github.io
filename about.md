@@ -1,6 +1,7 @@
 ---
 layout: page
 title: about
+comments: false
 permalink: /about/
 ---
 

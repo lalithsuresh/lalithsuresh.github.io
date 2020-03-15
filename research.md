@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Research
+comments: false
 permalink: /research/
 ---
 
