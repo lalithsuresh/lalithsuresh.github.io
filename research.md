@@ -43,7 +43,7 @@ Most of my projects are open-source and available on my [Github page](http://git
   that can be interpreted at line rate by programmable switches.
   We are currently collaborating with [Mellanox](https://mshahbaz.gitlab.io/files/p4summit20-elmo.pdf) to support Elmo 
   on their Spectrum-2 ASIC.<br>
-  [[SIGCOMM '19 paper](https://dlnext.acm.org/doi/abs/10.1145/3341302.3342066)] [[P4 Summit 2020 abstract](https://mshahbaz.gitlab.io/files/p4summit20-elmo.pdf)]
+  [[SIGCOMM '19 paper](https://dlnext.acm.org/doi/abs/10.1145/3341302.3342066)] [[P4 Expert Roundtable Series](https://mshahbaz.gitlab.io/files/p4summit20-elmo.pdf)]
 
 * **_Rapid: consistent and stable membership at scale_**  
   Rapid is a scalable, distributed membership service that (1) avoids flip-flops in
