@@ -36,7 +36,7 @@ Most of my projects are open-source and available on my [Github page](http://git
   SQL queries over cluster state stored in a relational database. Behind the scenes,
   the DCM compiler and runtime translates these queries into an optimization model
   that it solves using an off-the-shelf solver. We've built a Kubernetes scheduler using DCM.<br> 
-  [[Preprint](https://arxiv.org/pdf/1909.03130.pdf)] [[HotOS '19 paper](https://dl.acm.org/citation.cfm?id=3321444)] [[code](https://github.com/vmware/declarative-cluster-management/)]
+  [OSDI '20 paper] [[Preprint](https://arxiv.org/pdf/1909.03130.pdf)] [[HotOS '19 paper](https://dl.acm.org/citation.cfm?id=3321444)] [[code](https://github.com/vmware/declarative-cluster-management/)]
 
 * **_Elmo: source routed multicast for public clouds_**  
   Elmo overcomes the control- and data-plane scalability limitations of IP multicast in
@@ -82,6 +82,12 @@ Most of my projects are open-source and available on my [Github page](http://git
 ### Selected Publications
 
 A full list of my publications can be seen on my [Google Scholar page](https://scholar.google.com/citations?user=GRZxJIsAAAAJ&hl=en)
+
+
+* [Building Scalable and Flexible Cluster Managers using Declarative Programming](github.com/vmware/declarative-cluster-management/)  
+  Lalith Suresh, Joao Loff, Faria Kalim, Sangeetha Abdu Jyothi, Nina Narodytska, Leonid Ryzhyk, Sahan Gamage, Brian Oki, Pranshu Jain, Michael Gasch.  
+  OSDI, 2020. (To appear)
+
 
 * [Automating Cluster Management with Weave](https://arxiv.org/abs/1909.03130)  
   Lalith Suresh, Joao Loff, Faria Kalim, Nina Narodytska, Leonid Ryzhyk, Sahan Gamage, Brian Oki, Zeeshan Lokhandwala, Mukesh Hira, Mooly Sagiv.  
