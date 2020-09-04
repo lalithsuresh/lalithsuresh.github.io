@@ -88,6 +88,10 @@ A full list of my publications can be seen on my [Google Scholar page](https://s
   Lalith Suresh, Joao Loff, Faria Kalim, Sangeetha Abdu Jyothi, Nina Narodytska, Leonid Ryzhyk, Sahan Gamage, Brian Oki, Pranshu Jain, Michael Gasch.  
   OSDI, 2020. (To appear)
 
+* [Elmo: Source Routed Multicast for Public Clouds]()  
+  Muhammad Shahbaz, Lalith Suresh, Nick Feamster, Jen Rexford, Ori Rottenstreich, Mukesh Hira.  
+  ACM/IEEE Transactions on Networking, 2020. (To appear)
+
 
 * [Automating Cluster Management with Weave](https://arxiv.org/abs/1909.03130)  
   Lalith Suresh, Joao Loff, Faria Kalim, Nina Narodytska, Leonid Ryzhyk, Sahan Gamage, Brian Oki, Zeeshan Lokhandwala, Mukesh Hira, Mooly Sagiv.  
