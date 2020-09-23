@@ -51,8 +51,8 @@ Most of my projects are open-source and available on my [Github page](http://git
   the membership view even during complex failure scenarios (e.g., asymmetric
   reachability problems and high packet loss), and (2) presents all participating
   processes a strongly consistent view of the membership. Notable community efforts around
-  Rapid include: 1) [scaling Akka Cluster to 10K nodes](https://manuel.bernhardt.io/2020/04/30/10000-node-cluster-with-akka-and-rapid/),
-  2) [go-rapid](https://github.com/casualjim/go-rapid), and 3) [swift-rapid](https://github.com/manuelbernhardt/swift-rapid). <br>
+  Rapid include: [scaling Akka Cluster to 10K nodes](https://manuel.bernhardt.io/2020/04/30/10000-node-cluster-with-akka-and-rapid/),
+  [go-rapid](https://github.com/casualjim/go-rapid), and [swift-rapid](https://github.com/manuelbernhardt/swift-rapid). <br>
   [[ATC '18 paper](https://www.usenix.org/conference/atc18/presentation/suresh)] [[Preprint](https://arxiv.org/pdf/1803.03620.pdf)] [[code](http://github.com/lalithsuresh/rapid/)] [[blog](http://lalith.in/2018/09/13/Rapid/)]
 
 * **_Wisp: end-to-end rate limiting and request scheduling for micro-services_**  
