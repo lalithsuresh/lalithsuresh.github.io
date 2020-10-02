@@ -239,7 +239,7 @@ There are two things you can do to avoid this trap.
 First, try to sketch out the first few paragraphs of your paper's evaluation section as early as possible.
 This will make you think carefully about the main theses you'd like your evaluation to support.
 I find this simple trick helps me stay focused when planning experiments. You'll find yourself
-refining both the text for the evaluation section and the experiment workflow over time.
+refining both the text for the evaluation section, and the experiment workflow over time.
 
 The second  is to use what I recommended in the previous section: wait to see a report with data about
  all your experiments before iterating on a change to your system. Otherwise, you'll be playing experiment
