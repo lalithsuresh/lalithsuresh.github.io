@@ -15,12 +15,16 @@ found myself discussing this topic often with students, I think it's time to blo
 about this topic.
 
 I'll cover two broad topics: how to effectively prototype artifacts and how to
-be systematic about experimentation. On the prototyping side, we'll cover
+be systematic about experimentation. 
+
+On the prototyping side, we'll cover
 the *tracer bullet methodology* to gather incremental feedback about an idea,
 and the importance of systematically testing your
-code. On the topic of experiments, I'll argue for setting up
+code. 
+
+On the topic of experiments, I'll argue for setting up
 your experiment infrastructure as early as possible in a project, share some tips on
-automating your experiments, how to make your system experimentation-friendly, and end with
+automating your experiments, avoiding tunnel vision, how to make your system experimentation-friendly, and end with
  some guidelines on how to understand the results of your experiments.  
 
 <br>
