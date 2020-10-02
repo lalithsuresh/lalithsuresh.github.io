@@ -2,7 +2,6 @@
 layout: post
 title: ! 'Low-level advice for Systems PhD students'
 type: post  
-published: false
 ---
 
 
@@ -57,7 +56,7 @@ resonate with you:
 The premise for this article is the following comic I drew a while ago.
 
 <p align="center">
-<img src="http://lalith.in/img/codequality.png" alt="drawing" width="500"/>
+<img src="http://lalith.in/img/codequality.jpg" alt="drawing" width="500"/>
 </p>
 
 You have a finite amount of time, there's a lot of systems work to do, there's a submission deadline looming, 
