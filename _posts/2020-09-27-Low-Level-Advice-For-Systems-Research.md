@@ -222,8 +222,8 @@ deploy the artifacts, run the experiments, and collect the logs. I use python to
 an [SQLite](https://sqlite.org/index.html) database with the necessary traces and experiment metadata. 
 I then use [R](https://www.r-project.org/) to analyze the 
 traces, [ggplot](https://ggplot2.tidyverse.org/) for plotting, and use [RMarkdown](https://rmarkdown.rstudio.com/) to 
-produce a report that I can then send to a Slack channel. All of these steps are chained together using a single 
-top-level bash script.
+produce a report that I can then send to a Slack channel. All these steps are chained together using a single 
+top-level bash script that accepts the commit ID I want to test.
 
 <br>
 
