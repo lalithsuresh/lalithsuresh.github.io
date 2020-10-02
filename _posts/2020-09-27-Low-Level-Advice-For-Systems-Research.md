@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! 'Low-level advice for Systems PhD students'
+title: ! 'Low-level advice for Systems Research'
 type: post  
 ---
 
