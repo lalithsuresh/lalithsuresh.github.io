@@ -283,9 +283,9 @@ problem occurs. For example, expand your workflow with more logs or set up addit
 for the suspected factors.
 
 A particularly dangerous example I've seen is to declare victory the moment one sees their system beat the baseline 
-in end-to-end metrics. For example, "we improved transaction throughput by 800x over baseline Y" 
+in end-to-end metrics. For example, "our nifty algorithm improves transaction throughput by 800x over baseline Y" 
 (ratios that are quite fashionable these days!).
-Again, don't assume, but follow up with the required lower-level analysis to confirm you can
+Again, don't assume it was because of your algorithm, but follow up with the required lower-level analysis to confirm you can
  thoroughly explain *why* the performance disparity exists. 
 Some basic questions you can ask your data, based on unfortunate examples I've encountered in the wild: 
 * are you sure your database is not faster on reads because all reads return `null`?
