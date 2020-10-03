@@ -9,10 +9,10 @@ There's no shortage of "how to do research advice" on the Internet for graduate 
 Such advice, while inspiring, is extremely hard to translate into a means
 of staying productive as a systems PhD student on a daily or weekly basis. 
 
-I think this unfortunate, because I believe a lot of the stress associated with
-systems research can be offset by following good practices and methodology. Having
+I think this is unfortunate, because I believe a lot of the stress associated with
+systems research can be offset by following good practices and methodologies. Having
 found myself discussing this topic often with students, I think it's time to blog
-about this topic.
+about it.
 
 I'll cover two broad topics: how to effectively prototype artifacts and how to
 be systematic about experimentation. 
@@ -23,9 +23,9 @@ and the importance of systematically testing your
 code. 
 
 On the topic of experiments, I'll argue for setting up
-your experiment infrastructure as early as possible in a project, share some tips on
-automating your experiments, avoiding tunnel vision, how to make your system experimentation-friendly, and end with
- some guidelines on how to understand the results of your experiments.  
+your experiment infrastructure as early as possible in a project. I'll share some tips on
+automating your experiments, how to avoid tunnel vision, how to make your system experimentation-friendly, and end with
+ some advice on how to understand the results of your experiments.  
 
 <br>
 
