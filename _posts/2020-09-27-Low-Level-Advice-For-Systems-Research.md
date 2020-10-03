@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! 'Low-level advice for Systems Research'
+title: ! 'Low-level advice for systems research'
 type: post  
 ---
 
@@ -190,7 +190,7 @@ When running experiments, make sure to not only collect log data and traces, but
 Common bits of metadata that I tend to record include a timestamp for when I triggered the experiment
 , the timestamps for the individual experiment runs and repetitions, the relevant git commit IDs, metadata
 about the environment (e.g., VM sizes, cluster information) and all the parameter combinations that were run. 
-Save all the metadatato a file in a machine-friendly format (like CSV or JSON). 
+Save all the metadata to a file in a machine-friendly format (like CSV or JSON). 
 Avoid encoding experiment metadata into file or folder names ("experiment_1_param1_param2_param3"). This makes it hard
 to introduce changes over time (e.g. adding a new parameter will likely break your workflow).
 Propagate the experiment metadata all the way to your graphs, to be sure you know what commit ID and parameter
@@ -203,7 +203,7 @@ installing software libraries and configuring them). Instead, always script thes
 (I like using [ansible](https://www.ansible.com/) for such tasks).
 The reason being, that accumulating ad-hoc tweaks and commands with side-effects (like changing the OS configuration) 
 impairs reproducibility. Instead, be disciplined about only introducing changes to the infrastructure via a set of well 
-maintained scripts. They come in handy especially when unexpected failures happens and you need to migrate to a new
+maintained scripts. They come in handy especially when unexpected failures happen and you need to migrate to a new
 infrastructure (almost every project I've worked on had to go through this!).
  
 The sooner you start with the above workflows, the better. Once it's up, you'll soon hit a point
@@ -218,12 +218,12 @@ tracing points, you'll add new parameter combinations you want to test, and new 
 
 I have a fairly standard workflow I use for every project. It starts with using 
 [ansible](https://www.ansible.com/) to set up the infrastructure (e.g., bring up and configure VMs on EC2), 
-deploy the artifacts, run the experiments, and collect the logs. I use python to parse the raw logs and produce 
+deploy the artifacts, run the experiments, and collect the logs. I use Python to parse the raw logs and produce 
 an [SQLite](https://sqlite.org/index.html) database with the necessary traces and experiment metadata. 
 I then use [R](https://www.r-project.org/) to analyze the 
 traces, [ggplot](https://ggplot2.tidyverse.org/) for plotting, and use [RMarkdown](https://rmarkdown.rstudio.com/) to 
-produce a report that I can then send to a Slack channel. All these steps are chained together using a single 
-top-level bash script that accepts the commit ID I want to test.
+produce a report that I can then send to a Slack channel. A single 
+top-level bash script takes a commit ID and chains all the previous steps together.
 
 <br>
 
@@ -271,7 +271,7 @@ If production-ready JVMs can ship with hundreds of such flags, your research pro
 
 Systems are unfortunately way too complex.
 If you want to understand what happened over an experiment, there is no substitute to measuring aggressively. 
-Log any data that you think will help you understand what's going on, even if it is data that you will not present in a 
+Log any data you think will help you understand what's going on, even if it is data that you won't present in a 
 paper. If in doubt, always over-measure rather than under-measure.
 
 To borrow a quote from [John Ousterhout](https://web.stanford.edu/~ouster/cgi-bin/sayings.php): 
@@ -283,7 +283,7 @@ problem occurs. For example, expand your workflow with more logs or set up addit
 for the suspected factors.
 
 A particularly dangerous example I've seen is to declare victory the moment one sees their system beat the baseline 
-in end-to-end metrics. For example, "we have 800x higher transaction throughput than baseline Y" 
+in end-to-end metrics. For example, "we improved transaction throughput by 800x over baseline Y" 
 (ratios that are quite fashionable these days!).
 Again, don't assume, but follow up with the required lower-level analysis to confirm you can
  thoroughly explain *why* the performance disparity exists. 
@@ -305,3 +305,5 @@ I highlight recommend these books and articles to learn more:
 [2] ["The Art of Computer Systems Performance Analysis: Techniques for Experimental Design, Measurement, Simulation, and Modeling"](https://www.cse.wustl.edu/~jain/books/perfbook.htm), Raj Jain.  
 [3] ["Mathematical foundations of computer networking"](https://www.informit.com/store/mathematical-foundations-of-computer-networking-9780321792105), Srinivasan Keshav.  
 [4] ["Systems Benchmarking Crimes"](http://gernot-heiser.org/benchmarking-crimes.html), Gernot Heiser
+
+
