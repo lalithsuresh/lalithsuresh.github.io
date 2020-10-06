@@ -131,12 +131,11 @@ A CI system monitors a repository for new commits and runs a series of prescribe
 There are free solutions like [Travis](https://travis-ci.org/) you can easily use. You can also self-host your CI
 infrastructure using [Gitlab CI](https://docs.gitlab.com/ee/ci/). 
 
-A common pushback I've heard about rigorously testing research prototypes is 
-"Hey! We're trying to write a paper, not production code!". That statement, however, is a non sequitur. 
-A research prototype with tests is
-not a production system! I'm not suggesting that you add metrics, log retention, compliance checks, rolling upgrades,
-backwards compatibility, and umpteen other things that production systems need (unless they're relevant
-to your research, obviously).
+A common pushback I've heard about rigorously testing research prototypes is "Hey! We're trying to write a paper, not
+production code!". That statement, however, is a non sequitur. A research prototype with tests is not a production
+system! I'm not suggesting that you add metrics, log retention, compliance checks, rolling upgrades, backwards
+compatibility, and umpteen other things that production systems need (unless they're relevant to your research,
+obviously).
 
 Use any automated tooling available to harden your code. For example, I configure all my Java projects to use
  [Checkstyle](https://github.com/checkstyle/checkstyle) to enforce a coding style, and both 
@@ -150,7 +149,7 @@ Use any automated tooling available to harden your code. For example, I configur
 
 ### Experiments
 
-A common trap that students fall into is to defer experiments until their system is "ready". 
+A common trap that students fall into is to not think about experiments until their system is "ready". 
 This leads to the same problem we just discussed about not getting incremental feedback.
 
 <br>
