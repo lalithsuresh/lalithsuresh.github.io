@@ -106,7 +106,7 @@ This strategy applies at any granularity of your code: the entire system
 itself, specific modules within them, or even specific functions.
 
 For example, in the [DCM](github.com/vmware/declarative-cluster-management) project, 
-our hypothesis was that rather than having developers hand-craft fragile heuristics for cluster management
+we hypothesized that rather than having developers hand-craft fragile heuristics for cluster management
 problems, a compiler could synthesize the required implementation from an SQL specification. Doing so would make it
 easier to build cluster managers and schedulers that perform well, are flexible, and compute high-quality decisions.
   
