@@ -90,14 +90,10 @@ A full list of my publications can be seen on my [Google Scholar page](https://s
   Lalith Suresh, Joao Loff, Faria Kalim, Sangeetha Abdu Jyothi, Nina Narodytska, Leonid Ryzhyk, Sahan Gamage, Brian Oki, Pranshu Jain, Michael Gasch.  
   OSDI, 2020. (To appear)
 
+
 * [Elmo: Source Routed Multicast for Public Clouds]()  
   Muhammad Shahbaz, Lalith Suresh, Nick Feamster, Jen Rexford, Ori Rottenstreich, Mukesh Hira.  
   ACM/IEEE Transactions on Networking, 2020. (To appear)
-
-
-* [Automating Cluster Management with Weave](https://arxiv.org/abs/1909.03130)  
-  Lalith Suresh, Joao Loff, Faria Kalim, Nina Narodytska, Leonid Ryzhyk, Sahan Gamage, Brian Oki, Zeeshan Lokhandwala, Mukesh Hira, Mooly Sagiv.  
-  Arxiv Preprint, 2019.
 
 
 * [Hillview: A trillion-cell spreadsheet for big data](https://dl.acm.org/citation.cfm?id=3360355)  
@@ -124,9 +120,6 @@ A full list of my publications can be seen on my [Google Scholar page](https://s
   Marcos K. Aguilera, Nadav Amit, Irina Calciu, Xavier Deguillard, Jayneel Gandhi, Stanko Novakovic, Arun Ramanathan, Pratap Subrahmanyam, Lalith Suresh, Kiran Tati, Rajesh Venkatasubramanian, Michael Wei.  
   USENIX ATC, 2018.
 
-* [Elmo: Source-Routed Multicast for Cloud Services](https://arxiv.org/abs/1802.09815)  
-  Muhammad Shahbaz, Lalith Suresh, Nick Feamster, Jen Rexford, Ori Rottenstreich, Mukesh Hira.  
-  Arxiv Preprint, arXiv:1802.09815, February, 2018.
 
 * [Kraken: Online and Elastic Resource Reservations for Cloud Datacenters](http://ieeexplore.ieee.org/abstract/document/8234676/)  
   Carlo Fuerst, Stefan Schmid, Lalith Suresh, Paolo Costa.  
