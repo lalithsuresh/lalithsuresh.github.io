@@ -129,8 +129,8 @@ an experiment is daunting enough as it is: you don't want to compound this by de
 at the same time. 
 
 When working on a system with multiple authors, tests are essential to slowing down the rate at 
-which bugs and regressions creep in over time. When you find a new bug in your system, add a test case that reproduces
-it and add it to the test suite. 
+which bugs and regressions creep in over time. When you find a new bug in your system, add a new test case to reproduce
+the bug. 
 
 Only use a given commit/build of your system for an experiment if it has passed all tests.
  
@@ -202,8 +202,8 @@ Never, ever, configure your infrastructure manually (e.g., bringing up VMs on AW
 installing software libraries and configuring them). Instead, always script these workflows up 
 (I like using [ansible](https://www.ansible.com/) for such tasks).
 The reason being, that accumulating ad-hoc tweaks and commands with side-effects (like changing the OS configuration) 
-impairs reproducibility. Instead, be disciplined about only introducing changes to the infrastructure via a set of well 
-maintained scripts. They come in handy especially when unexpected failures happen and you need to migrate to a new
+impairs reproducibility. Instead, be disciplined about only introducing changes to the infrastructure via a set of 
+well-maintained scripts. They come in handy especially when unexpected failures happen and you need to migrate to a new
 infrastructure (almost every project I've worked on had to go through this!).
  
 The sooner you start with the above workflows, the better. Once it's up, you'll soon hit a point
