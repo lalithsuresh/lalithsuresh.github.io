@@ -47,7 +47,7 @@ resonate with you:
   it will be worth it at all.
 * There are many components of your system left to implement, and you're not sure what
   you should prioritize over others.
-* You find setting up, understanding and debugging experiments overwhelming.
+* You find setting up, understanding, and debugging experiments overwhelming.
 
 <br>
 
@@ -99,7 +99,7 @@ Instead, focus on getting a working end-to-end version early that might even onl
 for one example input, taking as many shortcuts as you need to get there 
 (e.g., an interpreter that can only run the program "1 + 1" and nothing else). 
 From there evolve the system to work with increasingly complex inputs, filling in gaps in your skeleton code
-and eating away at hard coded assumptions and shortcuts as you go along.
+and eating away at hardcoded assumptions and shortcuts as you go along.
 The benefit of this approach is that you always see the system work end-to-end, for more and more
 examples, and you receive continuous, incremental feedback on a variety of factors throughout the process.
 This strategy applies at any granularity of your code: the entire system
@@ -114,8 +114,8 @@ When we started working on DCM, we weren't even sure if this idea was practical 
 enough language for the task-at-hand. Building a fully functional compiler that generated fast-enough code 
 would have taken a while, and we wanted to validate the core hypothesis early. So to get started, we took a cluster 
 management system, expressed some of its logic in SQL, and had the compiler emit code that we'd mostly written by hand. 
-We tried this for several cluster management policies, and received steady feedback about the feasibility
- of our design along the way. Importantly, even before we had filled in the compiler's gaps, we had a working
+We tried this for several cluster management policies and received steady feedback about our design's feasibility
+ along the way. Importantly, even before we had filled in the compiler's gaps, we had a working
  end-to-end demo running within a real system, which gave us the required confidence to double down on the idea.
 
 <br>
@@ -140,10 +140,10 @@ There are free solutions like [Travis](https://travis-ci.org/) you can easily us
 infrastructure using [Gitlab CI](https://docs.gitlab.com/ee/ci/). 
 
 A common pushback I've heard about being rigorous with testing research prototypes is 
-"Hey! We're trying to write a paper, not production code!". That statement however, is non sequitur. 
+"Hey! We're trying to write a paper, not production code!". That statement, however, is a non sequitur. 
 A research prototype with tests is
 not a production system! I'm not suggesting that you add metrics, log retention, compliance checks, rolling upgrades,
-backwards compatibility and umpteen other things that production systems need (unless they're relevant
+backwards compatibility, and umpteen other things that production systems need (unless they're relevant
 to your research, obviously).
 
 Use any automated tooling available to harden your code. For example, I configure all my Java projects to use
@@ -186,7 +186,7 @@ The main goal for your experiment setup should be to completely automate the ent
  downloads all the relevant logs into an archive with the necessary metadata, processes the logs, 
  generates a report with the plots and sends that report to a Slack channel.
 
-When running experiments, make sure to not only collect log data and traces, but also the experiment's metadata. 
+When running experiments, make sure to not only collect log data and traces but also the experiment's metadata. 
 Common bits of metadata that I tend to record include a timestamp for when I triggered the experiment
 , the timestamps for the individual experiment runs and repetitions, the relevant git commit IDs, metadata
 about the environment (e.g., VM sizes, cluster information) and all the parameter combinations that were run. 
@@ -210,7 +210,7 @@ The sooner you start with the above workflows, the better. Once it's up, you'll 
 where just like your tests, you're able to continuously run experiments as part of your development process, to
 make sure your system is on track as far as your evaluation goals go. Every change you make gives you a report
 full of data about how that change affects various metrics of concern for your system. They become part of 
-your testing and regression suites.  
+your testing and regression suites.
  
 The tracer bullet methodology applies to your experiment setup just as much as it does to the system you're
 building. You'll find your experiment setup evolving in tandem with your system: you'll add new logging and 
@@ -221,7 +221,7 @@ I have a fairly standard workflow I use for every project. It starts with using
 deploy the artifacts, run the experiments, and collect the logs. I use Python to parse the raw logs and produce 
 an [SQLite](https://sqlite.org/index.html) database with the necessary traces and experiment metadata. 
 I then use [R](https://www.r-project.org/) to analyze the 
-traces, [ggplot](https://ggplot2.tidyverse.org/) for plotting, and use [RMarkdown](https://rmarkdown.rstudio.com/) to 
+traces, [ggplot](https://ggplot2.tidyverse.org/) for plotting, and [RMarkdown](https://rmarkdown.rstudio.com/) to 
 produce a report that I can then send to a Slack channel. A single 
 top-level bash script takes a commit ID and chains all the previous steps together.
 
@@ -239,7 +239,7 @@ There are two things you can do to avoid this trap.
 First, try to sketch out the first few paragraphs of your paper's evaluation section as early as possible.
 This will make you think carefully about the main theses you'd like your evaluation to support.
 I find this simple trick helps me stay focused when planning experiments. You'll find yourself
-refining both the text for the evaluation section, and the experiment workflow over time.
+refining both the text for the evaluation section and the experiment workflow over time.
 
 The second  is to use what I recommended in the previous section: wait to see a report with data about
  all your experiments before iterating on a change to your system. Otherwise, you'll be playing experiment
@@ -258,7 +258,7 @@ your code only to enable/disable a certain feature, you're doing it **completely
  combined, improve over the state-of-the-art (e.g., five new optimization passes in a compiler). 
  If your paper fits that description, always make sure to have
   the quintessential "look how X changes as we turn on
- these features, one after the other" experiment. If you only test the combination of these features, and not their
+ these features, one after the other" experiment. If you only test the combination of these features and not their
   individual contributions, you (and the readers) won't know if some of your features negatively impact your system! 
 
 And no, for the majority of systems projects, a few additional `if` statements are hardly going to affect your 
@@ -270,7 +270,7 @@ If production-ready JVMs can ship with hundreds of such flags, your research pro
 #### Measure, measure, measure
 
 Systems are unfortunately way too complex.
-If you want to understand what happened over an experiment, there is no substitute to measuring aggressively. 
+If you want to understand what happened over an experiment, there is no substitute for measuring aggressively. 
 Log any data you think will help you understand what's going on, even if it is data that you won't present in a 
 paper. If in doubt, always over-measure rather than under-measure.
 
