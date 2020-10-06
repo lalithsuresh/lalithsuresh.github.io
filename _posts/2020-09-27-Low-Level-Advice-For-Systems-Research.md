@@ -97,7 +97,7 @@ you don't want to spend a year building a system, only to find out you've hit a 
 
 Instead, focus on getting a working end-to-end version early that might even only work
 for one example input, taking as many shortcuts as you need to get there 
-(e.g., an interpreter that can only compile the program "1 + 1" and nothing else). 
+(e.g., an interpreter that can only run the program "1 + 1" and nothing else). 
 From there evolve the system to work with increasingly complex inputs, filling in gaps in your skeleton code
 and eating away at hard coded assumptions and shortcuts as you go along.
 The benefit of this approach is that you always see the system work end-to-end, for more and more
