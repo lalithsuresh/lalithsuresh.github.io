@@ -120,7 +120,7 @@ correctness when you run experiments. Debugging performance issues and system be
 an experiment is daunting enough as it is: don't compound this by debugging correctness issues
 at the same time. 
 
-When working on a system with multiple authors, tests are essential to slowing down the rate at 
+When working on a complex system (especially with multiple authors), tests are essential to slowing down the rate at 
 which bugs and regressions creep in over time. When you find a new bug in your system, add a new test case to reproduce
 the bug. 
 
