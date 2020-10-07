@@ -96,7 +96,7 @@ system work end-to-end, for more and more examples, and you receive continuous, 
 factors throughout the process. This strategy applies at any granularity of your code: the entire system itself,
 specific modules within them, or even specific functions.
 
-For example, in the [DCM](https://github.com/vmware/declarative-cluster-management) project, 
+For example, in the [DCM](/papers/dcm-osdi2020.pdf) project, 
 we observed that developers expend a lot of effort to hand-craft ad-hoc heuristics for cluster management
 problems. We hypothesized that a compiler could instead synthesize the required implementation from an SQL 
 specification. Doing so would make it easier to build cluster managers and schedulers that perform well, are flexible, 
