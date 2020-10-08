@@ -17,7 +17,7 @@ time. This is proving untenable, as solutions for cluster management problems ar
 the industry to solve largely similar problems across different settings.
 
 With DCM, we propose a radically different architecture where developers specify the cluster manager's behavior
-declaratively*, using SQL queries over cluster state stored in a relational database. From the SQL specification, the
+*declaratively*, using SQL queries over cluster state stored in a relational database. From the SQL specification, the
 DCM compiler synthesizes a program that, at runtime, can be invoked to compute policy-compliant cluster management
 decisions given the latest cluster state. Under the covers, the generated program efficiently encodes the cluster state
 as an optimization problem and solves it using a constraint solver, freeing developers from having to design ad-hoc
