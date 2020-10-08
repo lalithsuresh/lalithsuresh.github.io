@@ -4,8 +4,8 @@ title: ! 'Introducing DCM'
 type: post  
 ---
 
-I'm happy to (finally) share our [OSDI 2020 paper]((https://lalith.in/papers/dcm-osdi2020.pdf)) on *declarative cluster
-managers* (DCM).
+I'm happy to (finally) share our [OSDI 2020 paper]((https://lalith.in/papers/dcm-osdi2020.pdf)) on *Declarative Cluster
+Managers* (DCM).
 
 The premise for DCM is that writing modern cluster management code is notoriously hard, given that  they routinely
 grapple with hard combinatorial optimization problems. Think of capabilities like policy-based load balancing,
