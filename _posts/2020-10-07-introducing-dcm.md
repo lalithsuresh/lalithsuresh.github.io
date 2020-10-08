@@ -27,6 +27,6 @@ We show that DCM significantly lowers the barrier to building scalable and exten
 claim by powering three systems with it: a Kubernetes scheduler, a virtual machine management solution, and a
 distributed transactional datastore.
 
-If you're interested in the details, check out the [paper]((https://lalith.in/papers/dcm-osdi2020.pdf)). If you'd like
+If you're interested in the details, check out the [paper](https://lalith.in/papers/dcm-osdi2020.pdf). If you'd like
 to try out DCM, have a look at our [Github repository](https://github.com/vmware/declarative-cluster-management/). We
 welcome all feedback, questions, and contributions!
