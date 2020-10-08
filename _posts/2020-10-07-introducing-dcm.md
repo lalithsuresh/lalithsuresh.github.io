@@ -4,7 +4,7 @@ title: ! 'Introducing DCM'
 type: post  
 ---
 
-I'm happy to (finally) share our [OSDI 2020 paper]((https://lalith.in/papers/dcm-osdi2020.pdf)) on *Declarative Cluster
+I'm happy to (finally) share our [OSDI 2020 paper](/papers/dcm-osdi2020.pdf) on *Declarative Cluster
 Managers* (DCM).
 
 The premise for DCM is that writing modern cluster management code is notoriously hard, given that  they routinely
@@ -27,6 +27,6 @@ We show that DCM significantly lowers the barrier to building scalable and exten
 claim by powering three systems with it: a Kubernetes scheduler, a virtual machine management solution, and a
 distributed transactional datastore.
 
-If you're interested in the details, check out the [paper](https://lalith.in/papers/dcm-osdi2020.pdf). If you'd like
+If you're interested in the details, check out the [paper](/papers/dcm-osdi2020.pdf). If you'd like
 to try out DCM, have a look at our [Github repository](https://github.com/vmware/declarative-cluster-management/). We
 welcome all feedback, questions, and contributions!
