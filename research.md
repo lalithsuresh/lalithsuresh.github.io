@@ -1,23 +1,49 @@
 ---
-layout: post
-title: Research
+layout: page
 comments: false
 permalink: /research/
 ---
 
-My broad area of research is distributed systems and networking. At VMware
+# Research
+
+My broad area of research is distributed systems and networking. 
+I seek to build systems that both advance the state-of-the-art as well
+as the state of practice.
+
+At VMware
 Research, I'm leading efforts to simplify cluster management for large-scale
 distributed systems.
+My most recent endeavor is the [DCM](/papers/dcm-osdi2020.pdf) project,
+which simplifies cluster manager development using declarative programming and
+code generation.  
 
-I'm always on the lookout for motivated PhD students to work with. Reach
-out to me by email (suresh dot lalith at gmail) if you're interested in 
-an internship.
+As a PhD student, I invented techniques to deliver predictable performance for
+certain classes of distributed systems. I'm grateful that some of that work has
+been impactful.
+[C3](https://www.usenix.org/system/files/conference/nsdi15/nsdi15-paper-suresh.pdf)
+ships with
+[ElasticSearch](https://www.elastic.co/blog/improving-response-latency-in-elasticsearch-with-adaptive-replica-selection)
+and has influenced the design of [Spotify's
+ELS](https://labs.spotify.com/2015/12/09/els-part-2/).
+
+I'm a fervent champion of [open-source software](https://github.com/lalithsuresh/).  My
+time with the [ns-3 network simulator project](https://www.nsnam.org/) was a
+formative part of my career, where I was an active contributor and maintainer
+between 2009 and 2016. My largest contribution to the project was ns-3's
+integration with [Click](https://github.com/kohler/click). I was excited to
+learn that ns-3 and its predecessors were awarded the [SIGCOMM Networking
+Systems Award of
+2020](https://www.sigcomm.org/content/sigcomm-networking-systems-award).
+
 
 <br>
 
 ### Interns
 
-I've worked with some fantastic interns at VMware Research:
+I'm always on the lookout for motivated PhD students to work with. Reach
+out to me by email (suresh dot lalith at gmail) if you're interested.
+
+I've had the priviledge of working with some fantastic interns at VMware Research:
 
 * Xudong Sun (UUIC)
 * Faria Kalim (UUIC)
@@ -58,8 +84,8 @@ Most of my projects are open-source and available on my [Github page](http://git
 * **_Wisp: end-to-end rate limiting and request scheduling for micro-services_**  
   Wisp brings decentralized, end-to-end resource management to multi-tenant
   distributed systems architected as service-oriented architectures (SOA) or
-  micro-services.<br> [[SoCC '17
-  paper](https://dl.acm.org/citation.cfm?id=3132020)]
+  micro-services.<br> 
+  [[SoCC '17 paper](https://dl.acm.org/citation.cfm?id=3132020)]
 
 
 * **_C3: adaptive replica selection for cloud data stores_**  
