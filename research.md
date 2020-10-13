@@ -1,10 +1,9 @@
 ---
 layout: page
 comments: false
+title: Research
 permalink: /research/
 ---
-
-# Research
 
 My broad area of research is distributed systems and networking. 
 I seek to build systems that both advance the state-of-the-art as well
