@@ -30,9 +30,8 @@ time with the [ns-3 network simulator project](https://www.nsnam.org/) was a
 formative part of my career, where I was an active contributor and maintainer
 between 2009 and 2016. My largest contribution to the project was ns-3's
 integration with [Click](https://github.com/kohler/click). I was excited to
-learn that ns-3 and its predecessors were awarded the [SIGCOMM Networking
-Systems Award of
-2020](https://www.sigcomm.org/content/sigcomm-networking-systems-award).
+learn that ns-3 and its predecessors were awarded the [2020 ACM SIGCOMM Networking
+Systems Award](https://www.sigcomm.org/content/sigcomm-networking-systems-award).
 
 
 <br>
