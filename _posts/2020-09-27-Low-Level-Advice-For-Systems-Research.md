@@ -262,9 +262,9 @@ substitute for measuring aggressively. Log any data you think will help you unde
 data that you won't present in a paper. If in doubt, always over-measure rather than under-measure.
 
 To borrow a quote from [John Ousterhout](https://web.stanford.edu/~ouster/cgi-bin/sayings.php): "Use your intuition to
-ask questions, not answer them". Often, when faced with a performance problem, it's tempting to assume you know why
+ask questions, not answer them". Often, when faced with a performance problem or a bug, it's tempting to assume you know why
 (your intuition) and introduce changes to fix that problem. Don't! Treat your intuition as a hypothesis, and dig in
-further to confirm exactly why a certain performance problem occurs. For example, expand your workflow with more logs or
+further to confirm exactly why that problem occurs and how it manifests. For example, expand your workflow with more logs or
 set up additional experiments to control for the suspected factors.
 
 A particularly dangerous example I've seen is to declare victory the moment one sees their system beat the baseline 
