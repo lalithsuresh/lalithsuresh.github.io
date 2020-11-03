@@ -284,7 +284,7 @@ There are several aspects of measurement methodology that I think every systems 
 the relationship between latency and throughput, 
 open vs closed loop workload generation, how to understand bottlenecks, 
 how to summarize performance data, the use of confidence intervals, and much more. 
-I highlight recommend these books and articles to learn more:
+I highly recommend these books and articles to learn more:
 
 [1] ["Performance Evaluation of Computer and Communication Systems"](https://perfeval.epfl.ch/), Jean-Yves Le Boudec.  
 [2] ["The Art of Computer Systems Performance Analysis: Techniques for Experimental Design, Measurement, Simulation, and Modeling"](https://www.cse.wustl.edu/~jain/books/perfbook.htm), Raj Jain.  
