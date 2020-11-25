@@ -55,64 +55,48 @@ I've had the priviledge of working with some fantastic interns at VMware Researc
 
 Most of my projects are open-source and available on my [Github page](http://github.com/lalithsuresh).
 
-* **_DCM: Declarative Cluster Management_**<br>
-  DCM allows programmers to drive cluster management tasks declaratively, using
-  SQL queries over cluster state stored in a relational database. Behind the scenes,
-  the DCM compiler and runtime translates these queries into an optimization model
-  that it solves using an off-the-shelf solver. We've built a Kubernetes scheduler using DCM.<br> 
-  [[OSDI '20 paper](/papers/dcm-osdi2020.pdf)] [[Preprint](https://arxiv.org/pdf/1909.03130.pdf)] [[HotOS '19 paper](https://dl.acm.org/citation.cfm?id=3321444)] [[code](https://github.com/vmware/declarative-cluster-management/)]
+* **Declarative Cluster Managers (DCM):** Why write cluster management code by hand when you can code generate the
+   required implementation instead? Answer: improved scalability, decision quality, and flexibility with an order of magnitude less code.
+  <br> 
+  [[OSDI '20](https://www.usenix.org/system/files/osdi20-suresh.pdf)] [[HotOS '19](https://dl.acm.org/citation.cfm?id=3321444)] [[code](https://github.com/vmware/declarative-cluster-management/)]
 
-* **_Elmo: source routed multicast for public clouds_**  
-  Elmo overcomes the control- and data-plane scalability limitations of IP multicast in
-  data centers. It does so by  encoding  multicast trees inside packet headers 
-  that can be interpreted at line rate by programmable switches.
-  We are currently collaborating with [Mellanox](https://mshahbaz.gitlab.io/files/p4summit20-elmo.pdf) to support Elmo 
-  on their Spectrum-2 ASIC.<br>
-  [[SIGCOMM '19 paper](https://dlnext.acm.org/doi/abs/10.1145/3341302.3342066)] [[P4 Expert Roundtable Series](https://mshahbaz.gitlab.io/files/p4summit20-elmo.pdf)]
+* **Elmo:** Scalable and flexible multicast using source-routing.
+  Check out Mellanox's [implementation](https://mshahbaz.gitlab.io/files/p4summit20-elmo.pdf) of Elmo on their Spectrum-2 ASIC.<br>
+  [[SIGCOMM '19](https://dlnext.acm.org/doi/abs/10.1145/3341302.3342066)] [[P4 Summit](https://mshahbaz.gitlab.io/files/p4summit20-elmo.pdf)]
 
-* **_Rapid: consistent and stable membership at scale_**  
-  Rapid is a scalable, distributed membership service that (1) avoids flip-flops in
-  the membership view even during complex failure scenarios (e.g., asymmetric
-  reachability problems and high packet loss), and (2) presents all participating
-  processes a strongly consistent view of the membership. Notable community efforts around
-  Rapid include: [scaling Akka Cluster to 10K nodes](https://manuel.bernhardt.io/2020/04/30/10000-node-cluster-with-akka-and-rapid/),
-  [go-rapid](https://github.com/casualjim/go-rapid), and [swift-rapid](https://github.com/manuelbernhardt/swift-rapid). <br>
-  [[ATC '18 paper](https://www.usenix.org/conference/atc18/presentation/suresh)] [[Preprint](https://arxiv.org/pdf/1803.03620.pdf)] [[code](http://github.com/lalithsuresh/rapid/)] [[blog](http://lalith.in/2018/09/13/Rapid/)]
+* **Rapid:** widely used cluster membership protocols go haywire in the presence of complex failure
+  scenarios (e.g. high packet loss). Rapid instead
+  guarantees stable and strongly consistent membership at scale. 
+  Check out its use to [scale Akka Cluster to 10K nodes](https://manuel.bernhardt.io/2020/04/30/10000-node-cluster-with-akka-and-rapid/).<br>
+  [[ATC '18](https://www.usenix.org/conference/atc18/presentation/suresh)] [[code](http://github.com/lalithsuresh/rapid/)] [[blog](http://lalith.in/2018/09/13/Rapid/)] [Community efforts: [go-rapid](https://github.com/casualjim/go-rapid), [swift-rapid](https://github.com/manuelbernhardt/swift-rapid)]
 
-* **_Wisp: end-to-end rate limiting and request scheduling for micro-services_**  
-  Wisp brings decentralized, end-to-end resource management to multi-tenant
-  distributed systems architected as service-oriented architectures (SOA) or
-  micro-services.<br> 
-  [[SoCC '17 paper](https://dl.acm.org/citation.cfm?id=3132020)]
+* **Wisp:** decentralized, end-to-end rate limiting and request scheduling for micro-services.<br>
+  [[SoCC '17](https://dl.acm.org/citation.cfm?id=3132020)]
 
 
-* **_C3: adaptive replica selection for cloud data stores_**  
-  C3 is an adaptive replica selection algorithm for distributed
-  data stores to deal with performance
-  variability among replicas.  It currently ships
-  with
-  [ElasticSearch](https://www.elastic.co/blog/improving-response-latency-in-elasticsearch-with-adaptive-replica-selection),
-  and has influenced the design of [Spotify's Expected Latency Selector](https://labs.spotify.com/2015/12/09/els-part-2/).<br> [[NSDI '15 paper](https://www.usenix.org/system/files/conference/nsdi15/nsdi15-paper-suresh.pdf)] [[code](http://github.com/lalithsuresh/cassandra-c3)]
+* **C3:** a replica selection algorithm for distributed data stores that is robust to performance
+  variability among replicas.  It currently ships  with
+  [ElasticSearch](https://www.elastic.co/blog/improving-response-latency-in-elasticsearch-with-adaptive-replica-selection)
+  and has influenced the design of [Spotify's Expected Latency Selector](https://labs.spotify.com/2015/12/09/els-part-2/).<br> [[NSDI '15](https://www.usenix.org/system/files/conference/nsdi15/nsdi15-paper-suresh.pdf)] [[code](http://github.com/lalithsuresh/cassandra-c3)]
 
-* **_Odin: software-defined enterprise WiFi Networks_**  
-  Odin brings the benefits of SDN to enterprise WLANs.  With Odin, WLAN services
-  such as mobility managers and load balancers can be expressed with as little as
-  40 lines of Java. The project has seen many forks by researchers (a notable
-  effort being the [Wi-5](https://github.com/Wi5) project).<br> [[ATC '14 paper](https://www.usenix.org/system/files/conference/atc14/atc14-paper-schulz_zander.pdf)]
-  [[HotSDN '12 paper](https://conferences.sigcomm.org/sigcomm/2012/paper/hotsdn/p115.pdf)] [[code](https://github.com/lalithsuresh/odin)]
-
+* **Odin:** a software-defined WiFi network, centered around a programmable virtual access point primitive. 
+The project has seen many forks by researchers (a notable
+  effort being the [Wi-5](https://github.com/Wi5) project).<br> [[ATC '14](https://www.usenix.org/system/files/conference/atc14/atc14-paper-schulz_zander.pdf)]
+  [[HotSDN '12](https://conferences.sigcomm.org/sigcomm/2012/paper/hotsdn/p115.pdf)] [[code](https://github.com/lalithsuresh/odin)]
 
 
 <br>
+
+
 
 ### Selected Publications
 
 A full list of my publications can be seen on my [Google Scholar page](https://scholar.google.com/citations?user=GRZxJIsAAAAJ&hl=en)
 
 
-* [Building Scalable and Flexible Cluster Managers using Declarative Programming](/papers/dcm-osdi2020.pdf)  
+* [Building Scalable and Flexible Cluster Managers using Declarative Programming](https://www.usenix.org/system/files/osdi20-suresh.pdf)  
   Lalith Suresh, Joao Loff, Faria Kalim, Sangeetha Abdu Jyothi, Nina Narodytska, Leonid Ryzhyk, Sahan Gamage, Brian Oki, Pranshu Jain, Michael Gasch.  
-  OSDI, 2020. (To appear)
+  OSDI, 2020.
 
 
 * [Elmo: Source Routed Multicast for Public Clouds]()  
