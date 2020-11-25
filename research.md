@@ -60,7 +60,7 @@ Most of my projects are open-source and available on my [Github page](http://git
   <br> 
   [[OSDI '20](https://www.usenix.org/system/files/osdi20-suresh.pdf)] [[HotOS '19](https://dl.acm.org/citation.cfm?id=3321444)] [[code](https://github.com/vmware/declarative-cluster-management/)]
 
-* **Elmo:** Scalable and flexible multicast using source-routing.
+* **Elmo:** Scalable and flexible multicast at line-rate using source-routing.
   Check out Mellanox's [implementation](https://mshahbaz.gitlab.io/files/p4summit20-elmo.pdf) of Elmo on their Spectrum-2 ASIC.<br>
   [[SIGCOMM '19](https://dlnext.acm.org/doi/abs/10.1145/3341302.3342066)] [[P4 Summit](https://mshahbaz.gitlab.io/files/p4summit20-elmo.pdf)]
 
