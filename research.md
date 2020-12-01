@@ -99,9 +99,9 @@ A full list of my publications can be seen on my [Google Scholar page](https://s
   OSDI, 2020.
 
 
-* [Elmo: Source Routed Multicast for Public Clouds]()  
+* [Elmo: Source Routed Multicast for Public Clouds](https://ieeexplore.ieee.org/document/9203873)  
   Muhammad Shahbaz, Lalith Suresh, Nick Feamster, Jen Rexford, Ori Rottenstreich, Mukesh Hira.  
-  ACM/IEEE Transactions on Networking, 2020. (To appear)
+  IEEE/ACM Transactions on Networking, 2020.
 
 
 * [Hillview: A trillion-cell spreadsheet for big data](https://dl.acm.org/citation.cfm?id=3360355)  
