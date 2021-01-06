@@ -11,13 +11,13 @@ permalink: /about/
 
 <br>
 
-I’m Lalith Suresh, a computer scientist by trade. I research networked and distributed systems with the awesome folks at <a href="https://research.vmware.com/">VMware Research</a> in Palo Alto.
+I’m Lalith Suresh, a researcher at <a href="https://research.vmware.com/">VMware Research</a> in Palo Alto.
 
-Prior to my current position, I was a PhD student at <a href="http://www.tu-berlin.de">TU-Berlin</a>,
-where I was advised by <a href="http://net.t-labs.tu-berlin.de/~anja/">Prof. Anja Feldmann</a>
- and <a href="http://perso.uclouvain.be/marco.canini/">Prof. Marco Canini</a>. Before my PhD, I obtained a joint
-Masters degree in distributed computing from <a href="https://www.kth.se/en/studies/master/emdc/programme-description">
-KTH, Stockholm and IST, Lisbon</a> in June 2012.
+At VMware, I'm leading efforts to simplify cluster management for large-scale distributed systems. I also
+work on topics like failure detection, programmable networking, Big Data, and remote memory.
+
+I hold a PhD in computer science from <a href="http://www.tu-berlin.de">TU-Berlin</a> (2016)
+and a joint Masters degree in distributed computing from <a href="https://www.kth.se/en/">
+KTH, Stockholm</a> and <a href="https://tecnico.ulisboa.pt/en/">IST, Lisbon</a> (2012).
 
 I can be reached preferably via email at: suresh dot lalith at gmail.
-
