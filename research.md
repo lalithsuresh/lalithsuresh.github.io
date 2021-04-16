@@ -93,6 +93,9 @@ The project has seen many forks by researchers (a notable
 
 A full list of my publications can be seen on my [Google Scholar page](https://scholar.google.com/citations?user=GRZxJIsAAAAJ&hl=en)
 
+* [Reasoning about modern datacenter infrastructures using partial histories]()  
+  Xudong Sun, Lalith Suresh, Aishwarya Ganesan, Ramnatthan Alagappan, Michael Gasch, Lilia Tang, and Tianyin Xu.  
+  HotOS, 2021.
 
 * [Building Scalable and Flexible Cluster Managers using Declarative Programming](https://www.usenix.org/system/files/osdi20-suresh.pdf)  
   Lalith Suresh, Joao Loff, Faria Kalim, Sangeetha Abdu Jyothi, Nina Narodytska, Leonid Ryzhyk, Sahan Gamage, Brian Oki, Pranshu Jain, Michael Gasch.  
