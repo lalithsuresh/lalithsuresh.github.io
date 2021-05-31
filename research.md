@@ -93,7 +93,7 @@ The project has seen many forks by researchers (a notable
 
 A full list of my publications can be seen on my [Google Scholar page](https://scholar.google.com/citations?user=GRZxJIsAAAAJ&hl=en)
 
-* [Reasoning about modern datacenter infrastructures using partial histories]()  
+* [Reasoning about modern datacenter infrastructures using partial histories](https://sigops.org/s/conferences/hotos/2021/papers/hotos21-s11-sun.pdf)  
   Xudong Sun, Lalith Suresh, Aishwarya Ganesan, Ramnatthan Alagappan, Michael Gasch, Lilia Tang, and Tianyin Xu.  
   HotOS, 2021.
 
