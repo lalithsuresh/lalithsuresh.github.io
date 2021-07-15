@@ -43,8 +43,9 @@ out to me by email (suresh dot lalith at gmail) if you're interested.
 
 I've had the priviledge of working with some fantastic interns at VMware Research:
 
-* Xudong Sun (UUIC)
-* Faria Kalim (UUIC)
+* Athinagoras Skiadopoulos (Stanford)
+* Xudong Sun (UIUC)
+* Faria Kalim (UIUC)
 * João Loff (IST - Lisbon)
 * Muhammad Shahbaz (Princeton University)
 * Michael Tong (University of Chicago)
