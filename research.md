@@ -56,6 +56,10 @@ I've had the priviledge of working with some fantastic interns at VMware Researc
 
 Most of my projects are open-source and available on my [Github page](http://github.com/lalithsuresh).
 
+* **Sieve:** Automatically testing Kubernetes controllers for distributed systems-ey bugs.
+  <br>
+  [[HotOS '21](https://sigops.org/s/conferences/hotos/2021/papers/hotos21-s11-sun.pdf)] [[KubeCon NA '21](https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/program/schedule/)] [[code](https://github.com/sieve-project/sieve)]
+
 * **Declarative Cluster Managers (DCM):** Why write cluster management code by hand when you can code generate the
    required implementation instead? Answer: improved scalability, decision quality, and flexibility with an order of magnitude less code.
   <br> 
