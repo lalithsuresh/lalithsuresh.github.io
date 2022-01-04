@@ -11,18 +11,18 @@ as the state of practice.
 
 At VMware
 Research, I'm leading efforts to simplify cluster management for large-scale
-distributed systems.
-My most recent endeavor is the [DCM](/papers/dcm-osdi2020.pdf) project,
-which simplifies cluster manager development using declarative programming and
-code generation.  
+distributed systems. I am currently driving two projects. [Sieve](https://github.com/sieve-project/sieve)
+automatically tests Kubernetes controllers for [reliability issues](https://github.com/opensearch-project/OpenSearch/).
+[DCM](/papers/dcm-osdi2020.pdf) simplifies cluster manager development using declarative programming.
 
 As a PhD student, I invented techniques to deliver predictable performance for
 certain classes of distributed systems. I'm grateful that some of that work has
 been impactful.
 [C3](https://www.usenix.org/system/files/conference/nsdi15/nsdi15-paper-suresh.pdf)
 ships with
-[ElasticSearch](https://www.elastic.co/blog/improving-response-latency-in-elasticsearch-with-adaptive-replica-selection)
-and has influenced the design of [Spotify's
+[ElasticSearch](https://www.elastic.co/blog/improving-response-latency-in-elasticsearch-with-adaptive-replica-selection) 
+and [OpenSearch](https://github.com/opensearch-project/OpenSearch/), and 
+influenced the design of [Spotify's
 ELS](https://labs.spotify.com/2015/12/09/els-part-2/).
 
 I'm a fervent champion of [open-source software](https://github.com/lalithsuresh/).  My
@@ -97,6 +97,15 @@ The project has seen many forks by researchers (a notable
 ### Selected Publications
 
 A full list of my publications can be seen on my [Google Scholar page](https://scholar.google.com/citations?user=GRZxJIsAAAAJ&hl=en)
+
+
+* [NSight: How to diagnose nanosecond network delays in rich end-host stacks]()   
+  Roni Haecki, Radhika Niranjan Mysore, Lalith Suresh, Gerd Zellweger, Bo Gan, Timothy Merrifield, Sujata Banerjee, Mothy Roscoe   
+  NSDI 2022. (To appear)
+
+* [DBOS: A DBMS-Oriented Operating System]()  
+  Athinagoras Skiadopoulos, Qian Li, Peter Kraft, Kostis Kaffes, Daniel Hong, Shana Matthew, David Bestor, Michael Cafarella, Vijay Gadepally, Goetz Graefe, Jeremy Kepner, Christos Kozyrakis, Tim Kraska, Michael Stonebraker, Lalith Suresh, Matei Zaharia.    
+  VLDB 2022 (Vision paper). (To appear)
 
 * [Reasoning about modern datacenter infrastructures using partial histories](https://sigops.org/s/conferences/hotos/2021/papers/hotos21-s11-sun.pdf)  
   Xudong Sun, Lalith Suresh, Aishwarya Ganesan, Ramnatthan Alagappan, Michael Gasch, Lilia Tang, and Tianyin Xu.  
