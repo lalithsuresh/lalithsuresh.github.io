@@ -177,3 +177,19 @@ A full list of my publications can be seen on my [Google Scholar page](https://s
 * [Towards Programmable Enterprise WLANs with Odin](http://conferences.sigcomm.org/sigcomm/2012/paper/hotsdn/p115.pdf)  
   Lalith Suresh, Julius Schulz-Zander, Ruben Merz, Anja Feldmann, Teresa Vazao  
   HotSDN 2012.
+
+### Recent professional service
+
+Program committee: 
+* SIGCOMM 22  
+* OSDI 21  
+* ATC 20  
+* NSDI 20 
+* SOCC 19  
+* ATC 18  
+* ICDCS 18  
+* HotCloud 17 
+
+Artifact Evaluation Committee co-chair: 
+* OSDI 2021
+
