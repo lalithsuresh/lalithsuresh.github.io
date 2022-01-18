@@ -178,6 +178,7 @@ A full list of my publications can be seen on my [Google Scholar page](https://s
   Lalith Suresh, Julius Schulz-Zander, Ruben Merz, Anja Feldmann, Teresa Vazao  
   HotSDN 2012.
 
+<br>
 ### Recent professional service
 
 Program committee: 
