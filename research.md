@@ -12,7 +12,7 @@ as the state of practice.
 At VMware
 Research, I'm leading efforts to simplify cluster management for large-scale
 distributed systems. I am currently driving two projects. [Sieve](https://github.com/sieve-project/sieve)
-automatically tests Kubernetes controllers for [reliability issues](https://github.com/opensearch-project/OpenSearch/).
+automatically tests Kubernetes controllers for [reliability issues](https://github.com/sieve-project/sieve/blob/main/docs/bugs.md).
 [DCM](/papers/dcm-osdi2020.pdf) simplifies cluster manager development using declarative programming.
 
 As a PhD student, I invented techniques to deliver predictable performance for
