@@ -98,8 +98,11 @@ The project has seen many forks by researchers (a notable
 
 A full list of my publications can be seen on my [Google Scholar page](https://scholar.google.com/citations?user=GRZxJIsAAAAJ&hl=en)
 
+* [Automatic Reliability Testing For Cluster Management Controllers]()  
+  Xudong Sun, Wenqing Luo, Tyler Gu, Aishwarya Ganesan, Ramnatthan Alagappan, Michael Gasch, Lalith Suresh, Tianyin Xu  
+  OSDI 2022. (To appear)  
 
-* [NSight: How to diagnose nanosecond network delays in rich end-host stacks]()   
+* [NSight: How to diagnose nanosecond network delays in rich end-host stacks](https://www.usenix.org/conference/nsdi22/presentation/haecki)   
   Roni Haecki, Radhika Niranjan Mysore, Lalith Suresh, Gerd Zellweger, Bo Gan, Timothy Merrifield, Sujata Banerjee, Mothy Roscoe   
   NSDI 2022. (To appear)
 
