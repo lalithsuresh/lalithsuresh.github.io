@@ -104,7 +104,7 @@ A full list of my publications can be seen on my [Google Scholar page](https://s
 
 * [NSight: How to diagnose nanosecond network delays in rich end-host stacks](https://www.usenix.org/conference/nsdi22/presentation/haecki)   
   Roni Haecki, Radhika Niranjan Mysore, Lalith Suresh, Gerd Zellweger, Bo Gan, Timothy Merrifield, Sujata Banerjee, Mothy Roscoe   
-  NSDI 2022. (To appear)
+  NSDI 2022.
 
 * [DBOS: A DBMS-Oriented Operating System]()  
   Athinagoras Skiadopoulos, Qian Li, Peter Kraft, Kostis Kaffes, Daniel Hong, Shana Matthew, David Bestor, Michael Cafarella, Vijay Gadepally, Goetz Graefe, Jeremy Kepner, Christos Kozyrakis, Tim Kraska, Michael Stonebraker, Lalith Suresh, Matei Zaharia.    
