@@ -58,7 +58,7 @@ Most of my projects are open-source and available on my [Github page](http://git
 
 * **Sieve:** Automatically testing Kubernetes controllers for distributed systems-ey bugs.
   <br>
-  [[OSDI '22]] [[HotOS '21](https://sigops.org/s/conferences/hotos/2021/papers/hotos21-s11-sun.pdf)] [[KubeCon NA '21 talk](https://www.youtube.com/watch?v=6JnhjgOaZVk)] [[code](https://github.com/sieve-project/sieve)]
+  [[OSDI '22](https://www.usenix.org/conference/osdi22/presentation/sun)] [[HotOS '21](https://sigops.org/s/conferences/hotos/2021/papers/hotos21-s11-sun.pdf)] [[KubeCon NA '21 talk](https://www.youtube.com/watch?v=6JnhjgOaZVk)] [[code](https://github.com/sieve-project/sieve)]
 
 * **Declarative Cluster Managers (DCM):** Why write cluster management code by hand when you can code generate the
    required implementation instead? Answer: improved scalability, decision quality, and flexibility with an order of magnitude less code.
