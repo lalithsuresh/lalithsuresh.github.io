@@ -11,7 +11,7 @@ permalink: /about/
 
 <br>
 
-I’m Lalith Suresh, a researcher at <a href="https://research.vmware.com/">VMware Research</a> in Palo Alto.
+I’m Lalith Suresh, a senior researcher at <a href="https://research.vmware.com/">VMware Research</a> in Palo Alto.
 
 At VMware, I'm leading efforts to simplify cluster management for large-scale distributed systems. I also
 work on topics like failure detection, programmable networking, Big Data, and remote memory.
