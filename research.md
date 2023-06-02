@@ -98,6 +98,10 @@ The project has seen many forks by researchers (a notable
 
 A full list of my publications can be seen on my [Google Scholar page](https://scholar.google.com/citations?user=GRZxJIsAAAAJ&hl=en)
 
+* [Scaling a Declarative Cluster Manager Architecture with Query Optimization Techniques](https://www.vldb.org/2023/)  
+  Kexin Rong, Mihai Budiu, Athinagoras Skiadopoulos, Lalith Suresh, Amy Tai
+  VLDB 2023. 
+
 * [Automatic Reliability Testing For Cluster Management Controllers](https://www.usenix.org/conference/osdi22/presentation/sun)  
   Xudong Sun, Wenqing Luo, Tyler Gu, Aishwarya Ganesan, Ramnatthan Alagappan, Michael Gasch, Lalith Suresh, Tianyin Xu  
   OSDI 2022. 
