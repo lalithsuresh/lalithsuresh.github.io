@@ -41,7 +41,7 @@ Systems Award](https://www.sigcomm.org/content/sigcomm-networking-systems-award)
 I'm always on the lookout for motivated PhD students to work with. Reach
 out to me by email (suresh dot lalith at gmail) if you're interested.
 
-I've had the priviledge of working with some fantastic interns at VMware Research:
+I've had the privilege of working with some fantastic interns at VMware Research:
 
 * Athinagoras Skiadopoulos (Stanford)
 * Xudong Sun (UIUC)
