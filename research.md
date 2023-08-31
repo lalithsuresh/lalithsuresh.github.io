@@ -9,13 +9,20 @@ My broad area of research is distributed systems and networking.
 I seek to build systems that both advance the state-of-the-art as well
 as the state of practice.
 
-At VMware
-Research, I'm leading efforts to simplify cluster management for large-scale
-distributed systems. I am currently driving two projects. [Sieve](https://github.com/sieve-project/sieve)
-automatically tests Kubernetes controllers for [reliability issues](https://github.com/sieve-project/sieve/blob/main/docs/bugs.md).
-[DCM](/papers/dcm-osdi2020.pdf) simplifies cluster manager development using declarative programming.
+I am currently a co-founder at [Feldera](https://www.feldera.com/), where we
+are building a platform for continuous analytics over data in motion.
 
-As a PhD student, I invented techniques to deliver predictable performance for
+Prior to Feldera, I was a senior researcher at VMware Research (2016-2023). There I led
+research efforts to improve the scalability, reliability and extensibility of
+large-scale cluster managers.  [Sieve](https://github.com/sieve-project/sieve)
+automatically tests Kubernetes controllers for [reliability
+issues](https://github.com/sieve-project/sieve/blob/main/docs/bugs.md), and
+[Anvil](https://github.com/vmware-research/verifiable-controllers/) is an ongoing effort
+to build formally verified Kubernetes controllers. [DCM](/papers/dcm-osdi2020.pdf)
+makes it easy to build scalable and flexible cluster managers using declarative
+programming.
+
+As a PhD student (2012-2016), I invented techniques to deliver predictable performance for
 certain classes of distributed systems. I'm grateful that some of that work has
 been impactful.
 [C3](https://www.usenix.org/system/files/conference/nsdi15/nsdi15-paper-suresh.pdf)
