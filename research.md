@@ -98,6 +98,10 @@ The project has seen many forks by researchers (a notable
 
 A full list of my publications can be seen on my [Google Scholar page](https://scholar.google.com/citations?user=GRZxJIsAAAAJ&hl=en)
 
+* [R3: Record-Replay-Retroaction for Database-Backed Applications](https://www.vldb.org/2023/)  
+  Qian Li, Peter Kraft, Michael Cafarella, Çağatay Demiralp, Goetz Graefe, Christos Kozyrakis, Michael Stonebraker, Lalith Suresh, Xiangyao Yu, Matei Zaharia 
+  VLDB 2023. 
+
 * [Scaling a Declarative Cluster Manager Architecture with Query Optimization Techniques](https://www.vldb.org/2023/)  
   Kexin Rong, Mihai Budiu, Athinagoras Skiadopoulos, Lalith Suresh, Amy Tai  
   VLDB 2023. 
