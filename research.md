@@ -17,7 +17,7 @@ research efforts to improve the scalability, reliability and extensibility of
 large-scale cluster managers.  [Sieve](https://github.com/sieve-project/sieve)
 automatically tests Kubernetes controllers for [reliability
 issues](https://github.com/sieve-project/sieve/blob/main/docs/bugs.md), and
-[VC](https://github.com/vmware-research/verifiable-controllers/) is a framework
+[Anvil](https://github.com/vmware-research/verifiable-controllers/) is a framework
 to build formally verified Kubernetes controllers. [DCM](/papers/dcm-osdi2020.pdf)
 makes it easy to build scalable and flexible cluster managers using declarative
 programming.
@@ -63,6 +63,10 @@ I've had the privilege of working with some fantastic interns at VMware Research
 
 Most of my projects are open-source and available on my [Github page](http://github.com/lalithsuresh).
 
+* **Anvil:** Verifying liveness for cluster management controllers.
+  <br>
+  [[OSDI '24](https://www.usenix.org/conference/osdi24)] [[code](https://github.com/vmware-research/verifiable-controllers/)]
+
 * **Sieve:** Automatically testing Kubernetes controllers for distributed systems-ey bugs.
   <br>
   [[OSDI '22](https://www.usenix.org/conference/osdi22/presentation/sun)] [[HotOS '21](https://sigops.org/s/conferences/hotos/2021/papers/hotos21-s11-sun.pdf)] [[KubeCon NA '21 talk](https://www.youtube.com/watch?v=6JnhjgOaZVk)] [[code](https://github.com/sieve-project/sieve)]
@@ -105,8 +109,12 @@ The project has seen many forks by researchers (a notable
 
 A full list of my publications can be seen on my [Google Scholar page](https://scholar.google.com/citations?user=GRZxJIsAAAAJ&hl=en)
 
+* [Anvil: Verifying Liveness of Cluster Management Controllers](https://www.usenix.org/conference/osdi24)  
+  Xudong Sun, Wenjie Ma, Jiawei Tyler Gu, Zicheng Ma, Tej Chajed, Jon Howell, Andrea Lattuada, Oded Padon, Lalith Suresh, Adriana Szekeres, Tianyin Xu  
+  OSDI 2024. 
+
 * [R3: Record-Replay-Retroaction for Database-Backed Applications](https://www.vldb.org/2023/)  
-  Qian Li, Peter Kraft, Michael Cafarella, Çağatay Demiralp, Goetz Graefe, Christos Kozyrakis, Michael Stonebraker, Lalith Suresh, Xiangyao Yu, Matei Zaharia 
+  Qian Li, Peter Kraft, Michael Cafarella, Çağatay Demiralp, Goetz Graefe, Christos Kozyrakis, Michael Stonebraker, Lalith Suresh, Xiangyao Yu, Matei Zaharia  
   VLDB 2023. 
 
 * [Scaling a Declarative Cluster Manager Architecture with Query Optimization Techniques](https://www.vldb.org/2023/)  
