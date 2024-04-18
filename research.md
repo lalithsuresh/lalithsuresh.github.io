@@ -9,8 +9,8 @@ My broad area of research is distributed systems and networking.
 I seek to build systems that both advance the state-of-the-art as well
 as the state of practice.
 
-I am currently a co-founder at [Feldera](https://www.feldera.com/), where we
-are building a powerful platform for *continuous analytics* over data in-motion.
+I am currently CEO & Co-founder at [Feldera](https://www.feldera.com/), where we
+are building an engine that brings real-time SQL powers to your lakehouse.
 
 Prior to Feldera, I was a senior researcher at VMware Research (2016-2023), where I led
 research efforts to improve the scalability, reliability and extensibility of

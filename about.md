@@ -11,7 +11,8 @@ permalink: /about/
 
 <br>
 
-I’m Lalith Suresh, a co-founder at <a href="https://www.feldera.com">Feldera</a>.
+I’m Lalith Suresh, CEO & co-founder at <a href="https://www.feldera.com">Feldera</a>. We are on a journey to bring you
+real-time SQL capabilities to your lakehouse.
 
 I was previously (2016-2023) a senior researcher at <a href="https://research.vmware.com/">VMware Research</a> in Palo Alto.
 There, I led efforts to simplify cluster management for large-scale distributed systems. I also
