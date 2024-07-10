@@ -65,7 +65,7 @@ Most of my projects are open-source and available on my [Github page](http://git
 
 * **Anvil:** Verifying liveness for cluster management controllers.
   <br>
-  [[OSDI '24](https://www.usenix.org/conference/osdi24)] [[code](https://github.com/vmware-research/verifiable-controllers/)]
+  [[Best paper award at OSDI '24](https://www.usenix.org/conference/osdi24/presentation/sun-xudong)] [[code](https://github.com/vmware-research/verifiable-controllers/)]
 
 * **Sieve:** Automatically testing Kubernetes controllers for distributed systems-ey bugs.
   <br>
@@ -109,9 +109,9 @@ The project has seen many forks by researchers (a notable
 
 A full list of my publications can be seen on my [Google Scholar page](https://scholar.google.com/citations?user=GRZxJIsAAAAJ&hl=en)
 
-* [Anvil: Verifying Liveness of Cluster Management Controllers](https://www.usenix.org/conference/osdi24)  
+* [Anvil: Verifying Liveness of Cluster Management Controllers](https://www.usenix.org/conference/osdi24/presentation/sun-xudong)  
   Xudong Sun, Wenjie Ma, Jiawei Tyler Gu, Zicheng Ma, Tej Chajed, Jon Howell, Andrea Lattuada, Oded Padon, Lalith Suresh, Adriana Szekeres, Tianyin Xu  
-  OSDI 2024. 
+  OSDI 2024. **Awarded Best Paper**.
 
 * [R3: Record-Replay-Retroaction for Database-Backed Applications](https://www.vldb.org/2023/)  
   Qian Li, Peter Kraft, Michael Cafarella, Çağatay Demiralp, Goetz Graefe, Christos Kozyrakis, Michael Stonebraker, Lalith Suresh, Xiangyao Yu, Matei Zaharia  
