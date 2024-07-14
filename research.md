@@ -14,11 +14,10 @@ are building an engine that brings real-time SQL powers to your lakehouse.
 
 Prior to Feldera, I was a senior researcher at VMware Research (2016-2023), where I led
 research efforts to improve the scalability, reliability and extensibility of
-large-scale cluster managers.  [Sieve](https://github.com/sieve-project/sieve)
+large-scale cluster managers.  [Anvil](https://github.com/vmware-research/verifiable-controllers/) is a framework
+to build formally verified Kubernetes controllers and [Sieve](https://github.com/sieve-project/sieve)
 automatically tests Kubernetes controllers for [reliability
-issues](https://github.com/sieve-project/sieve/blob/main/docs/bugs.md), and
-[Anvil](https://github.com/vmware-research/verifiable-controllers/) is a framework
-to build formally verified Kubernetes controllers. [DCM](/papers/dcm-osdi2020.pdf)
+issues](https://github.com/sieve-project/sieve/blob/main/docs/bugs.md). [DCM](/papers/dcm-osdi2020.pdf)
 makes it easy to build scalable and flexible cluster managers using declarative
 programming.
 
