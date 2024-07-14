@@ -27,7 +27,7 @@ been impactful.
 [C3](https://www.usenix.org/system/files/conference/nsdi15/nsdi15-paper-suresh.pdf)
 ships with
 [ElasticSearch](https://www.elastic.co/blog/improving-response-latency-in-elasticsearch-with-adaptive-replica-selection) 
-and [OpenSearch](https://github.com/opensearch-project/OpenSearch/), and 
+and [OpenSearch](https://github.com/opensearch-project/OpenSearch/) as the Adaptive Replica Selection feature, and 
 influenced the design of [Spotify's
 ELS](https://labs.spotify.com/2015/12/09/els-part-2/).
 
