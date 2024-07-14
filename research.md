@@ -10,7 +10,9 @@ I seek to build systems that both advance the state-of-the-art as well
 as the state of practice.
 
 I am currently CEO & Co-founder at [Feldera](https://www.feldera.com/), where we
-are building an engine that brings real-time SQL powers to your lakehouse.
+are building a powerful streaming platform for AI, ML and data teams. It is
+powered by our [award-winning research](https://www.feldera.com/blog/tags/award/) that
+allows us to incrementally execute arbitrarily complex SQL programs.
 
 Prior to Feldera, I was a senior researcher at VMware Research (2016-2023), where I led
 research efforts to improve the scalability, reliability and extensibility of
