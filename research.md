@@ -72,10 +72,10 @@ Most of my projects are open-source and available on my [Github page](http://git
   <br>
   [[OSDI '22](https://www.usenix.org/conference/osdi22/presentation/sun)] [[HotOS '21](https://sigops.org/s/conferences/hotos/2021/papers/hotos21-s11-sun.pdf)] [[KubeCon NA '21 talk](https://www.youtube.com/watch?v=6JnhjgOaZVk)] [[code](https://github.com/sieve-project/sieve)]
 
-* **Declarative Cluster Managers (DCM):** Why write cluster management code by hand when you can code generate the
-   required implementation instead? Answer: improved scalability, decision quality, and flexibility with an order of magnitude less code.
+* **Declarative Cluster Managers (DCM):** Combines incremental view maintenance, SQL and constraint programming to build scalable, flexible and
+ powerful cluster managers (we built a high-performance Kubernetes Scheduler with it, among other things).
   <br> 
-  [[VLDB '23](https://www.vldb.org/2023/)] [[OSDI '20](https://www.usenix.org/system/files/osdi20-suresh.pdf)]] [[HotOS '19](https://dl.acm.org/citation.cfm?id=3321444)] [[code](https://github.com/vmware/declarative-cluster-management/)]
+  [[VLDB '23](https://www.vldb.org/pvldb/vol16/p2618-rong.pdf)] [[OSDI '20](https://www.usenix.org/system/files/osdi20-suresh.pdf)]] [[HotOS '19](https://dl.acm.org/citation.cfm?id=3321444)] [[code](https://github.com/vmware/declarative-cluster-management/)]
 
 * **Elmo:** Scalable and flexible multicast at line-rate using source-routing.
   Check out Mellanox's [implementation](https://mshahbaz.gitlab.io/files/p4summit20-elmo.pdf) of Elmo on their Spectrum-2 ASIC.<br>
@@ -118,7 +118,7 @@ A full list of my publications can be seen on my [Google Scholar page](https://s
   Qian Li, Peter Kraft, Michael Cafarella, Çağatay Demiralp, Goetz Graefe, Christos Kozyrakis, Michael Stonebraker, Lalith Suresh, Xiangyao Yu, Matei Zaharia  
   VLDB 2023. 
 
-* [Scaling a Declarative Cluster Manager Architecture with Query Optimization Techniques](https://www.vldb.org/2023/)  
+* [Scaling a Declarative Cluster Manager Architecture with Query Optimization Techniques](https://www.vldb.org/pvldb/vol16/p2618-rong.pdf)  
   Kexin Rong, Mihai Budiu, Athinagoras Skiadopoulos, Lalith Suresh, Amy Tai  
   VLDB 2023. 
 
