@@ -42,24 +42,6 @@ learn that ns-3 and its predecessors were awarded the [2020 ACM SIGCOMM Networki
 Systems Award](https://www.sigcomm.org/content/sigcomm-networking-systems-award).
 
 
-<br>
-
-### Interns
-
-I'm always on the lookout for motivated PhD students to work with. Reach
-out to me by email (suresh dot lalith at gmail) if you're interested.
-
-I've had the privilege of working with some fantastic interns at VMware Research:
-
-* Athinagoras Skiadopoulos (Stanford)
-* Xudong Sun (UIUC)
-* Faria Kalim (UIUC)
-* João Loff (IST - Lisbon)
-* Muhammad Shahbaz (Princeton University)
-* Michael Tong (University of Chicago)
-
-<br>
-
 ### Selected projects
 
 Most of my projects are open-source and available on my [Github page](http://github.com/lalithsuresh).
@@ -103,8 +85,6 @@ The project has seen many forks by researchers (a notable
 
 
 <br>
-
-
 
 ### Selected Publications
 
@@ -204,6 +184,22 @@ A full list of my publications can be seen on my [Google Scholar page](https://s
 * [Towards Programmable Enterprise WLANs with Odin](http://conferences.sigcomm.org/sigcomm/2012/paper/hotsdn/p115.pdf)  
   Lalith Suresh, Julius Schulz-Zander, Ruben Merz, Anja Feldmann, Teresa Vazao  
   HotSDN 2012.
+
+<br>
+
+### Students
+
+I've had the privilege of working with some fantastic PhD interns while at VMware Research:
+
+* Athinagoras Skiadopoulos (Stanford)
+* Xudong Sun (UIUC)
+* Faria Kalim (UIUC)
+* João Loff (IST - Lisbon)
+* Muhammad Shahbaz (Princeton University)
+* Michael Tong (University of Chicago)
+
+<br>
+
 
 <br>
 ### Recent professional service
