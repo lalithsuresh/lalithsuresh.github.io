@@ -27,9 +27,9 @@ As a PhD student (2012-2016), I invented techniques to deliver predictable perfo
 certain classes of distributed systems. I'm grateful that some of that work has
 been impactful.
 [C3](https://www.usenix.org/system/files/conference/nsdi15/nsdi15-paper-suresh.pdf)
-ships with
+ships with [Apache Pinot](https://github.com/apache/pinot/), 
 [ElasticSearch](https://www.elastic.co/blog/improving-response-latency-in-elasticsearch-with-adaptive-replica-selection) 
-and [OpenSearch](https://github.com/opensearch-project/OpenSearch/) as the Adaptive Replica Selection feature, and 
+and [OpenSearch](https://github.com/opensearch-project/OpenSearch/) as part of their Adaptive Replica Selection features, and 
 influenced the design of [Spotify's
 ELS](https://labs.spotify.com/2015/12/09/els-part-2/).
 
